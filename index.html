@@ -41,8 +41,8 @@
   .back-top:hover{transform:translateY(-4px) scale(1.1);}
   .page-overlay{position:fixed;inset:0;background:var(--hot-pink);z-index:9998;transform:translateY(100%);transition:transform .35s ease;}
   .page-overlay.in{transform:translateY(0);}
-  .fade-in{opacity:0;transform:translateY(35px);transition:opacity .7s ease,transform .7s ease;}
-  .fade-in.visible{opacity:1;transform:translateY(0);}
+  .fade-in{opacity:1;transform:none;}
+  
 
   /* HERO */
   .hero{min-height:92vh;position:relative;overflow:hidden;background:linear-gradient(135deg,#FF6BB5 0%,#FF1F8E 35%,#C8005C 65%,#FF9BCE 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:60px 20px;}
@@ -357,5 +357,4 @@
   const page=location.pathname.split('/').pop().replace('.html','')||'index';
   document.querySelectorAll('.nav-links a').forEach(a=>{if((a.dataset.page||'')===(page||'index'))a.classList.add('active');});
   const overlay=document.getElementById('pageOverlay');
-  document.querySelectorAll('a[href]').forEach(a=>{const href=a.getAttribute('href');if(!href||href.startsWith('#')||href.startsWith('mailto')||href.startsWith('http')||a.target==='_blank')return;a.addEventListener('click',e=>{e.preventDefault();overlay.classList.add('in');setTimeout(()=>location.href=href,320);});});
-  const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.ta
+  document.querySelectorAll('a[href]').forEach(a=>{const href=a.getAttribute('href');if(!href||href.startsWith('#')||href.startsWith('mailto')||href.startsWith('http')||a.target==='_blank')return;a.addEventListener('click',e=>{e.preventDefault();overlay.classList.add('in');s
