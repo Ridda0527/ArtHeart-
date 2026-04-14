@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutorials 🎨 Art from the Heart Initiative</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Caveat:wght@400;600;700&family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--hot-pink:#FF1F8E;--bubblegum:#FF6BB5;--rose:#FF9BCE;--blush:#FFD6E8;--pale:#FFF0F7;--magenta:#C8005C;--cream:#FFF5F9;--yellow-pop:#FFE566;--purple-pop:#D966FF;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Nunito',sans-serif;background:var(--pale);overflow-x:hidden;}
+  body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,#FF6BB5 1.5px,transparent 1.5px);background-size:40px 40px;opacity:0.1;pointer-events:none;z-index:0;}
+  .bg-hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+  .bg-heart{position:absolute;opacity:0.07;animation:floatHeart linear infinite;}
+  @keyframes floatHeart{0%{transform:translateY(110vh) rotate(0deg);opacity:0}10%{opacity:0.07}90%{opacity:0.07}100%{transform:translateY(-10vh) rotate(360deg);opacity:0}}
+  .progress-bar{position:fixed;top:0;left:0;height:4px;width:0%;background:linear-gradient(90deg,var(--hot-pink),var(--yellow-pop),var(--purple-pop));z-index:9999;border-radius:0 4px 4px 0;}
+  .announcement{background:linear-gradient(90deg,var(--hot-pink),var(--purple-pop),var(--hot-pink));background-size:200% auto;animation:shimmer 3s linear infinite;color:white;text-align:center;padding:10px 20px;font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;position:relative;z-index:200;}
+  @keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
+  .announcement a{color:var(--yellow-pop);text-decoration:underline;}
+  nav{background:white;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:199;box-shadow:0 4px 20px rgba(255,31,142,0.15);border-bottom:3px dashed var(--rose);flex-wrap:wrap;}
+  .nav-logo{font-family:'Pacifico',cursive;font-size:1.5rem;color:var(--hot-pink);text-decoration:none;display:flex;align-items:center;gap:8px;transition:transform .2s;}
+  .nav-logo:hover{transform:scale(1.05) rotate(-1deg);}
+  .nav-links{display:flex;gap:6px;list-style:none;flex-wrap:wrap;justify-content:flex-end;}
+  .nav-links a{font-family:'Caveat',cursive;font-size:1.1rem;font-weight:700;color:var(--magenta);text-decoration:none;padding:6px 13px;border-radius:50px;transition:all .25s;border:2px solid transparent;}
+  .nav-links a:hover,.nav-links a.active{background:var(--blush);border-color:var(--rose);color:var(--hot-pink);transform:translateY(-2px) rotate(-1deg);}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px;}
+  .hamburger span{display:block;width:26px;height:3px;background:var(--hot-pink);border-radius:3px;transition:all .3s;}
+  .hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+  .wavy{width:100%;overflow:hidden;line-height:0;margin-top:-2px;}
+  .wavy svg{display:block;width:100%;}
+  .section-label{font-family:'Pacifico',cursive;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--hot-pink);text-align:center;margin-bottom:8px;}
+  .section-label::after{content:'';display:block;height:5px;margin:8px auto 0;background:linear-gradient(90deg,var(--rose),var(--hot-pink),var(--purple-pop));border-radius:10px;width:160px;}
+  .section-sub{font-family:'Dancing Script',cursive;font-size:1.3rem;color:var(--bubblegum);text-align:center;margin-bottom:45px;}
+  .back-top{position:fixed;bottom:28px;right:28px;background:linear-gradient(135deg,var(--hot-pink),var(--purple-pop));color:white;border:none;border-radius:50%;width:52px;height:52px;font-size:1.4rem;cursor:pointer;box-shadow:0 6px 20px rgba(255,31,142,0.4);transition:all .3s;z-index:300;opacity:0;pointer-events:none;display:flex;align-items:center;justify-content:center;}
+  .back-top.show{opacity:1;pointer-events:all;}
+  .back-top:hover{transform:translateY(-4px) scale(1.1);}
+  .page-overlay{position:fixed;inset:0;background:var(--hot-pink);z-index:9998;transform:translateY(100%);transition:transform .35s ease;}
+  .page-overlay.in{transform:translateY(0);}
+  .fade-in{opacity:0;transform:translateY(35px);transition:opacity .7s ease,transform .7s ease;}
+  .fade-in.visible{opacity:1;transform:translateY(0);}
+
+  .page-hero{position:relative;z-index:1;background:linear-gradient(135deg,#FF9BCE,#FF1F8E,#D966FF);padding:75px 20px;text-align:center;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.07) 2px,transparent 2px);background-size:30px 30px;pointer-events:none;}
+  .page-hero h1{font-family:'Pacifico',cursive;font-size:clamp(2rem,6vw,3.8rem);color:white;text-shadow:3px 3px 0 var(--magenta);margin-bottom:14px;position:relative;z-index:1;}
+  .page-hero p{font-family:'Dancing Script',cursive;font-size:1.5rem;color:var(--yellow-pop);font-weight:700;position:relative;z-index:1;}
+
+  /* INTRO */
+  .intro-section{position:relative;z-index:1;background:white;padding:60px 20px;text-align:center;}
+  .tut-intro{max-width:780px;margin:0 auto;background:var(--blush);border:3px dashed var(--rose);border-radius:28px;padding:28px 38px;font-family:'Caveat',cursive;font-size:1.2rem;color:var(--magenta);line-height:1.7;}
+
+  /* TUTORIAL CARDS — video on top, info below */
+  .tutorials-section{position:relative;z-index:1;background:var(--pale);padding:60px 20px 80px;}
+  .tutorials-inner{max-width:1000px;margin:0 auto;}
+  .tut-card{background:white;border:3px solid var(--rose);border-radius:35px;overflow:hidden;margin-bottom:50px;box-shadow:0 8px 30px rgba(255,31,142,0.1);transition:all .3s;position:relative;}
+  .tut-card:hover{box-shadow:0 22px 55px rgba(255,31,142,0.18);transform:translateY(-4px);}
+  .tut-card::before{position:absolute;top:18px;right:18px;font-family:'Pacifico',cursive;font-size:.78rem;color:white;padding:5px 14px;border-radius:50px;z-index:2;}
+  .tut-card.is-new::before{content:'NEW ✨';background:var(--hot-pink);}
+
+  /* VIDEO EMBED */
+  .tut-video-wrap{position:relative;width:100%;padding-bottom:52%;background:#000;overflow:hidden;}
+  .tut-video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+
+  /* INFO STRIP */
+  .tut-info{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  .tut-left{padding:30px 32px;border-right:2px solid var(--blush);}
+  .tut-right{padding:30px 32px;background:linear-gradient(145deg,var(--pale),white);}
+  .tut-month-badge{background:var(--hot-pink);color:white;font-family:'Pacifico',cursive;font-size:.8rem;padding:4px 15px;border-radius:50px;display:inline-block;margin-bottom:12px;}
+  .tut-left h3{font-family:'Pacifico',cursive;font-size:1.5rem;color:var(--hot-pink);margin-bottom:6px;}
+  .tut-left h4{font-family:'Dancing Script',cursive;font-size:1.15rem;color:var(--magenta);margin-bottom:14px;font-weight:700;}
+  .tut-left p{font-family:'Caveat',cursive;font-size:1.15rem;color:#666;line-height:1.75;}
+  .tut-right h4{font-family:'Pacifico',cursive;font-size:1rem;color:var(--hot-pink);margin-bottom:12px;}
+  .tut-bag{font-family:'Caveat',cursive;font-size:1.1rem;color:var(--magenta);line-height:1.7;background:var(--blush);border-radius:15px;padding:14px 18px;display:block;}
+  .tut-watch-link{display:inline-flex;align-items:center;gap:8px;margin-top:16px;background:linear-gradient(135deg,var(--hot-pink),var(--purple-pop));color:white;font-family:'Pacifico',cursive;font-size:.88rem;padding:10px 22px;border-radius:50px;text-decoration:none;transition:all .3s;box-shadow:0 5px 18px rgba(255,31,142,0.3);}
+  .tut-watch-link:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 10px 28px rgba(255,31,142,0.4);}
+
+  /* FOOTER */
+  footer{position:relative;z-index:1;background:linear-gradient(135deg,var(--magenta),var(--hot-pink),var(--bubblegum));color:white;text-align:center;padding:55px 20px 35px;}
+  footer::before{content:'💕 🎨 💕 🎨 💕 🎨 💕 🎨 💕';display:block;font-size:1.4rem;margin-bottom:25px;opacity:0.45;letter-spacing:8px;}
+  footer .f-logo{font-family:'Pacifico',cursive;font-size:1.9rem;margin-bottom:10px;}
+  footer .f-tagline{font-family:'Dancing Script',cursive;font-size:1.35rem;color:var(--yellow-pop);margin-bottom:22px;font-weight:700;}
+  .footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:22px;}
+  .footer-links a{font-family:'Caveat',cursive;font-size:1rem;color:rgba(255,255,255,0.8);text-decoration:none;padding:4px 12px;border-radius:50px;border:1px solid rgba(255,255,255,0.3);transition:all .2s;}
+  .footer-links a:hover{background:rgba(255,255,255,0.2);color:white;}
+  .footer-social{display:flex;justify-content:center;gap:15px;margin-bottom:22px;flex-wrap:wrap;}
+  .social-btn{display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'Caveat',cursive;font-size:1.05rem;font-weight:700;padding:10px 24px;border-radius:50px;text-decoration:none;border:2px solid rgba(255,255,255,0.4);transition:all .3s;}
+  .social-btn:hover{background:white;color:var(--hot-pink);transform:translateY(-3px);}
+  footer .f-divider{font-size:1.3rem;margin-bottom:12px;opacity:.5;}
+  footer .f-credit{font-family:'Caveat',cursive;font-size:.95rem;opacity:.75;margin-bottom:20px;}
+  .rs-credit{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.2);}
+  .rs-credit p{font-family:'Caveat',cursive;font-size:.9rem;opacity:.65;margin-bottom:5px;}
+  .rs-name{font-family:'Pacifico',cursive;font-size:1.1rem;color:var(--yellow-pop);text-decoration:none;transition:all .2s;}
+  .rs-name:hover{color:white;letter-spacing:1px;}
+
+  @media(max-width:768px){
+    nav{padding:14px 20px;}
+    .hamburger{display:flex;}
+    .nav-links{display:none;width:100%;flex-direction:column;gap:4px;padding:12px 0 6px;border-top:2px dashed var(--rose);margin-top:10px;}
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:10px 16px;border-radius:15px;font-size:1.15rem;}
+    .back-top{bottom:16px;right:16px;width:44px;height:44px;font-size:1.2rem;}
+    .tut-info{grid-template-columns:1fr;}
+    .tut-left{border-right:none;border-bottom:2px solid var(--blush);}
+    .tut-intro{padding:22px;}
+    .tut-video-wrap{padding-bottom:60%;}
+  }
+</style>
+</head>
+<body>
+<div class="bg-hearts" id="bgHearts"></div>
+<div class="progress-bar" id="progressBar"></div>
+<div class="page-overlay" id="pageOverlay"></div>
+<button class="back-top" id="backTop" aria-label="Back to top">💕</button>
+
+<div class="announcement">🎨 New January Video Uploaded! &nbsp;<a href="tutorials.html">Watch our DIY Sunglasses Tutorial! ✨</a></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">💕 Art from the Heart</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" data-page="index">Home</a></li>
+    <li><a href="tutorials.html" data-page="tutorials">Tutorials</a></li>
+    <li><a href="leaders.html" data-page="leaders">Our Leaders</a></li>
+    <li><a href="mission.html" data-page="mission">Mission</a></li>
+    <li><a href="events.html" data-page="events">Past Events</a></li>
+    <li><a href="research.html" data-page="research">Research</a></li>
+    <li><a href="contact.html" data-page="contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <h1>Tutorials 🎀</h1>
+  <p>Art + Learning = Pure Magic!</p>
+</div>
+<div class="wavy" style="background:linear-gradient(135deg,#FF9BCE,#D966FF);"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,80 L0,80 Z" fill="white"/></svg></div>
+
+<!-- INTRO -->
+<section class="intro-section">
+  <h2 class="section-label">Art &amp; Wellness Tutorials 🌸</h2>
+  <p class="section-sub">Every project teaches something new~</p>
+  <div class="tut-intro fade-in">
+    Every child can find a project that matches their abilities and sparks their interest! 🌟 Our leaders blend art with education — teaching anatomy, common diseases, health risks, good habits, and hygiene. Watch the videos below and follow along with your goody bag! 🖌️
+  </div>
+</section>
+
+<div class="wavy" style="background:white;"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,80 1440,40 L1440,80 L0,80 Z" fill="#FFF0F7"/></svg></div>
+
+<!-- TUTORIALS -->
+<section class="tutorials-section">
+  <div class="tutorials-inner">
+
+    <!-- JANUARY — YouTube -->
+    <div class="tut-card is-new fade-in">
+      <div class="tut-video-wrap">
+        <iframe src="https://www.youtube.com/embed/mDenIANAnZE" title="January Tutorial: DIY Sunglasses" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="tut-info">
+        <div class="tut-left">
+          <span class="tut-month-badge">January 2026</span>
+          <h3>DIY Sunglasses!</h3>
+          <h4>🌞 Eye Health &amp; UV Protection</h4>
+          <p>Learn how to protect your eyes from UV rays and how to promote lifelong eye health! Decorate your own pair of sunglasses with our January goody bag.</p>
+          <a class="tut-watch-link" href="https://www.youtube.com/watch?v=mDenIANAnZE" target="_blank" rel="noopener">▶️ Watch on YouTube</a>
+        </div>
+        <div class="tut-right">
+          <h4>🎁 Goody Bag Includes:</h4>
+          <span class="tut-bag">3 strips of gem stickers, 2 mystery charms, sunglasses, and a glue dot sheet!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOVEMBER — YouTube -->
+    <div class="tut-card fade-in">
+      <div class="tut-video-wrap">
+        <iframe src="https://www.youtube.com/embed/6fzQpoL2ueA" title="November Tutorial: Relax Like a Jellyfish" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="tut-info">
+        <div class="tut-left">
+          <span class="tut-month-badge">November 2025</span>
+          <h3>Relax Like a Jellyfish!</h3>
+          <h4>🧠 Mental Health &amp; Daily Affirmations</h4>
+          <p>Learn about the importance of mental health and how to boost it with daily affirmations! Make your own relaxing jellyfish craft.</p>
+          <a class="tut-watch-link" href="https://www.youtube.com/watch?v=6fzQpoL2ueA" target="_blank" rel="noopener">▶️ Watch on YouTube</a>
+        </div>
+        <div class="tut-right">
+          <h4>🎁 Goody Bag Includes:</h4>
+          <span class="tut-bag">12 strips of multicolored cardstock paper, a small roll of glue dots, a permanent marker, a semicircle cutout, and two paper eyes!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- APRIL — Google Drive -->
+    <div class="tut-card fade-in">
+      <div class="tut-video-wrap">
+        <iframe src="https://drive.google.com/file/d/1LEZc9aABgaf4asphPYQruKpMaKp49UAr/preview" title="April Tutorial: Healthy Eating Habits" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="tut-info">
+        <div class="tut-left">
+          <span class="tut-month-badge">April 2025</span>
+          <h3>Healthy Eating Habits</h3>
+          <h4>🥗 Nutrition &amp; Healthy Living</h4>
+          <p>Learn about eating healthy and why it's so important! Make your own little garden with our April goody bag.</p>
+          <a class="tut-watch-link" href="https://drive.google.com/file/d/1LEZc9aABgaf4asphPYQruKpMaKp49UAr/view" target="_blank" rel="noopener">▶️ Watch Video</a>
+        </div>
+        <div class="tut-right">
+          <h4>🎁 Goody Bag Includes:</h4>
+          <span class="tut-bag">3 sheets of tissue paper, a small roll of glue dots, a BeMighty coloring book, a backdrop, and yarn!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARCH — Google Drive -->
+    <div class="tut-card fade-in">
+      <div class="tut-video-wrap">
+        <iframe src="https://drive.google.com/file/d/129PQiN3saXIznExrzu-YJ6na8t1Rslr2/preview" title="March Tutorial: Maracas and Music Therapy" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="tut-info">
+        <div class="tut-left">
+          <span class="tut-month-badge">March 2025</span>
+          <h3>Maracas &amp; Music Therapy</h3>
+          <h4>🎶 Music Therapy &amp; Mental Wellness</h4>
+          <p>Learn about music therapy and what it's used for! Make your own music therapy instrument with our March goody bag.</p>
+          <a class="tut-watch-link" href="https://drive.google.com/file/d/129PQiN3saXIznExrzu-YJ6na8t1Rslr2/view" target="_blank" rel="noopener">▶️ Watch Video</a>
+        </div>
+        <div class="tut-right">
+          <h4>🎁 Goody Bag Includes:</h4>
+          <span class="tut-bag">Our custom logo sticker, two spoons, a foot of washi tape, dried beans, and an easter egg!</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="wavy" style="background:var(--pale);"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,80 1440,40 L1440,80 L0,80 Z" fill="#C8005C"/></svg></div>
+
+<footer>
+  <div class="f-logo">💕 Art from the Heart Initiative 💕</div>
+  <div class="f-tagline">Art That Heals, Hearts That Smile</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="mission.html">Mission</a><a href="tutorials.html">Tutorials</a>
+    <a href="leaders.html">Our Leaders</a><a href="events.html">Past Events</a>
+    <a href="research.html">Research</a><a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-social">
+    <a href="mailto:artfromtheheartar@gmail.com" class="social-btn">📧 Email Us</a>
+    <a href="https://www.instagram.com/artfromtheheartar/" target="_blank" rel="noopener" class="social-btn">📸 Instagram</a>
+  </div>
+  <p class="f-divider">💕 💕 💕</p>
+  <p class="f-credit">Made with love by students of Little Rock Central High School 🏫</p>
+  <div class="rs-credit">
+    <p>Website designed &amp; developed by</p>
+    <a href="https://rsdigital.vercel.app" target="_blank" rel="noopener" class="rs-name">RS Digital</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const bg=document.getElementById('bgHearts');
+  const emojis=['💕','💗','💖','💝','🌸','✨','🎨','💞','🌷'];
+  for(let i=0;i<20;i++){const h=document.createElement('div');h.className='bg-heart';h.textContent=emojis[Math.floor(Math.random()*emojis.length)];h.style.left=Math.random()*100+'vw';h.style.fontSize=(1.2+Math.random()*2.8)+'rem';h.style.animationDuration=(10+Math.random()*20)+'s';h.style.animationDelay=-(Math.random()*20)+'s';bg.appendChild(h);}
+  const bar=document.getElementById('progressBar');
+  window.addEventListener('scroll',()=>{const st=document.documentElement.scrollTop;const sh=document.documentElement.scrollHeight-document.documentElement.clientHeight;bar.style.width=(st/sh*100)+'%';},{passive:true});
+  const btt=document.getElementById('backTop');
+  window.addEventListener('scroll',()=>btt.classList.toggle('show',window.scrollY>400),{passive:true});
+  btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  const ham=document.getElementById('hamburger');const nav=document.getElementById('navLinks');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');nav.classList.toggle('open');});
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');nav.classList.remove('open');}));
+  const page=location.pathname.split('/').pop().replace('.html','')||'index';
+  document.querySelectorAll('.nav-links a').forEach(a=>{if((a.dataset.page||'')===(page||'index'))a.classList.add('active');});
+  const overlay=document.getElementById('pageOverlay');
+  document.querySelectorAll('a[href]').forEach(a=>{const href=a.getAttribute('href');if(!href||href.startsWith('#')||href.startsWith('mailto')||href.startsWith('http')||a.target==='_blank')return;a.addEventListener('click',e=>{e.preventDefault();overlay.classList.add('in');setTimeout(()=>location.href=href,320);});});
+  const obs=new IntersectionObserver(entries=>entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80);}),{threshold:0.12});
+  document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+})();
+</script>
+</body>
+</html>

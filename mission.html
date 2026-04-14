@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission 💕 Art from the Heart Initiative</title>
+<meta name="description" content="Art from the Heart Initiative — enriching our community through creativity and compassion.">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Caveat:wght@400;600;700&family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--hot-pink:#FF1F8E;--bubblegum:#FF6BB5;--rose:#FF9BCE;--blush:#FFD6E8;--pale:#FFF0F7;--magenta:#C8005C;--cream:#FFF5F9;--yellow-pop:#FFE566;--purple-pop:#D966FF;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Nunito',sans-serif;background:var(--pale);overflow-x:hidden;}
+  body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,#FF6BB5 1.5px,transparent 1.5px);background-size:40px 40px;opacity:0.1;pointer-events:none;z-index:0;}
+  .bg-hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+  .bg-heart{position:absolute;opacity:0.07;animation:floatHeart linear infinite;}
+  @keyframes floatHeart{0%{transform:translateY(110vh) rotate(0deg);opacity:0}10%{opacity:0.07}90%{opacity:0.07}100%{transform:translateY(-10vh) rotate(360deg);opacity:0}}
+  .progress-bar{position:fixed;top:0;left:0;height:4px;width:0%;background:linear-gradient(90deg,var(--hot-pink),var(--yellow-pop),var(--purple-pop));z-index:9999;border-radius:0 4px 4px 0;}
+  .announcement{background:linear-gradient(90deg,var(--hot-pink),var(--purple-pop),var(--hot-pink));background-size:200% auto;animation:shimmer 3s linear infinite;color:white;text-align:center;padding:10px 20px;font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;position:relative;z-index:200;}
+  @keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
+  .announcement a{color:var(--yellow-pop);text-decoration:underline;}
+  .announcement a:hover{opacity:.8;}
+  nav{background:white;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:199;box-shadow:0 4px 20px rgba(255,31,142,0.15);border-bottom:3px dashed var(--rose);flex-wrap:wrap;}
+  .nav-logo{font-family:'Pacifico',cursive;font-size:1.5rem;color:var(--hot-pink);text-decoration:none;display:flex;align-items:center;gap:8px;transition:transform .2s;}
+  .nav-logo:hover{transform:scale(1.05) rotate(-1deg);}
+  .nav-links{display:flex;gap:6px;list-style:none;flex-wrap:wrap;justify-content:flex-end;}
+  .nav-links a{font-family:'Caveat',cursive;font-size:1.1rem;font-weight:700;color:var(--magenta);text-decoration:none;padding:6px 13px;border-radius:50px;transition:all .25s;border:2px solid transparent;}
+  .nav-links a:hover,.nav-links a.active{background:var(--blush);border-color:var(--rose);color:var(--hot-pink);transform:translateY(-2px) rotate(-1deg);}
+  .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px;}
+  .hamburger span{display:block;width:26px;height:3px;background:var(--hot-pink);border-radius:3px;transition:all .3s;}
+  .hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+  .hamburger.open span:nth-child(2){opacity:0;}
+  .hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+  .wavy{width:100%;overflow:hidden;line-height:0;margin-top:-2px;}
+  .wavy svg{display:block;width:100%;}
+  .section-label{font-family:'Pacifico',cursive;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--hot-pink);text-align:center;margin-bottom:8px;}
+  .section-label::after{content:'';display:block;height:5px;margin:8px auto 0;background:linear-gradient(90deg,var(--rose),var(--hot-pink),var(--purple-pop));border-radius:10px;width:160px;}
+  .section-sub{font-family:'Dancing Script',cursive;font-size:1.3rem;color:var(--bubblegum);text-align:center;margin-bottom:45px;}
+  .btn-pink{display:inline-block;background:var(--hot-pink);color:white;font-family:'Pacifico',cursive;font-size:.95rem;padding:12px 28px;border-radius:50px;text-decoration:none;transition:all .3s;box-shadow:0 6px 20px rgba(255,31,142,0.3);}
+  .btn-pink:hover{background:var(--magenta);transform:translateY(-4px) scale(1.04);}
+  .back-top{position:fixed;bottom:28px;right:28px;background:linear-gradient(135deg,var(--hot-pink),var(--purple-pop));color:white;border:none;border-radius:50%;width:52px;height:52px;font-size:1.4rem;cursor:pointer;box-shadow:0 6px 20px rgba(255,31,142,0.4);transition:all .3s;z-index:300;opacity:0;pointer-events:none;display:flex;align-items:center;justify-content:center;}
+  .back-top.show{opacity:1;pointer-events:all;}
+  .back-top:hover{transform:translateY(-4px) scale(1.1);}
+  .page-overlay{position:fixed;inset:0;background:var(--hot-pink);z-index:9998;transform:translateY(100%);transition:transform .35s ease;}
+  .page-overlay.in{transform:translateY(0);}
+  .fade-in{opacity:0;transform:translateY(35px);transition:opacity .7s ease,transform .7s ease;}
+  .fade-in.visible{opacity:1;transform:translateY(0);}
+  .page-hero{position:relative;z-index:1;background:linear-gradient(135deg,#FF6BB5,#FF1F8E,#C8005C);padding:75px 20px;text-align:center;overflow:hidden;}
+  .page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.07) 2px,transparent 2px);background-size:30px 30px;pointer-events:none;}
+  .page-hero h1{font-family:'Pacifico',cursive;font-size:clamp(2rem,6vw,3.8rem);color:white;text-shadow:3px 3px 0 var(--magenta);margin-bottom:14px;position:relative;z-index:1;}
+  .page-hero p{font-family:'Dancing Script',cursive;font-size:1.5rem;color:var(--yellow-pop);font-weight:700;position:relative;z-index:1;}
+  footer{position:relative;z-index:1;background:linear-gradient(135deg,var(--magenta),var(--hot-pink),var(--bubblegum));color:white;text-align:center;padding:55px 20px 35px;}
+  footer::before{content:'💕 🎨 💕 🎨 💕 🎨 💕 🎨 💕';display:block;font-size:1.4rem;margin-bottom:25px;opacity:0.45;letter-spacing:8px;}
+  footer .f-logo{font-family:'Pacifico',cursive;font-size:1.9rem;margin-bottom:10px;}
+  footer .f-tagline{font-family:'Dancing Script',cursive;font-size:1.35rem;color:var(--yellow-pop);margin-bottom:22px;font-weight:700;}
+  .footer-links{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:22px;}
+  .footer-links a{font-family:'Caveat',cursive;font-size:1rem;color:rgba(255,255,255,0.8);text-decoration:none;padding:4px 12px;border-radius:50px;border:1px solid rgba(255,255,255,0.3);transition:all .2s;}
+  .footer-links a:hover{background:rgba(255,255,255,0.2);color:white;}
+  .footer-social{display:flex;justify-content:center;gap:15px;margin-bottom:22px;flex-wrap:wrap;}
+  .social-btn{display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'Caveat',cursive;font-size:1.05rem;font-weight:700;padding:10px 24px;border-radius:50px;text-decoration:none;border:2px solid rgba(255,255,255,0.4);transition:all .3s;}
+  .social-btn:hover{background:white;color:var(--hot-pink);transform:translateY(-3px);}
+  footer .f-divider{font-size:1.3rem;margin-bottom:12px;opacity:.5;}
+  footer .f-credit{font-family:'Caveat',cursive;font-size:.95rem;opacity:.75;margin-bottom:20px;}
+  .rs-credit{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.2);}
+  .rs-credit p{font-family:'Caveat',cursive;font-size:.9rem;opacity:.65;margin-bottom:5px;}
+  .rs-name{font-family:'Pacifico',cursive;font-size:1.1rem;color:var(--yellow-pop);text-decoration:none;transition:all .2s;}
+  .rs-name:hover{color:white;letter-spacing:1px;}
+  @keyframes iconWiggle{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+  @keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  
+  .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1050px;margin:0 auto 60px;}
+  .pillar{background:linear-gradient(145deg,var(--blush),white);border:3px solid var(--rose);border-radius:30px;padding:40px 28px;text-align:center;transition:all .35s;position:relative;overflow:hidden;}
+  .pillar::after{content:'';position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--hot-pink),var(--purple-pop));}
+  .pillar:hover{transform:translateY(-10px) rotate(1deg);box-shadow:0 22px 45px rgba(255,31,142,0.2);border-color:var(--hot-pink);}
+  .pillar .icon{font-size:3.2rem;display:block;margin-bottom:18px;animation:iconWiggle 3s ease-in-out infinite;}
+  .pillar h3{font-family:'Pacifico',cursive;font-size:1.3rem;color:var(--hot-pink);margin-bottom:12px;}
+  .pillar p{font-family:'Caveat',cursive;font-size:1.1rem;color:#666;line-height:1.7;}
+  .statement-block{background:linear-gradient(135deg,var(--hot-pink),var(--bubblegum));border-radius:40px;padding:55px 50px;color:white;position:relative;overflow:hidden;max-width:860px;margin:0 auto 35px;}
+  .statement-block::before{content:'💕';position:absolute;font-size:9rem;opacity:0.07;top:-20px;left:-20px;}
+  .statement-block::after{content:'💕';position:absolute;font-size:9rem;opacity:0.07;bottom:-20px;right:-20px;}
+  .statement-block p{font-family:'Caveat',cursive;font-size:1.3rem;line-height:1.85;position:relative;z-index:1;}
+  .statement-block p+p{margin-top:18px;}
+  .content-section{position:relative;z-index:1;padding:70px 20px;}
+  .content-inner{max-width:1050px;margin:0 auto;text-align:center;}
+  @media(max-width:768px){.pillars-grid{grid-template-columns:1fr;}.statement-block{padding:38px 26px;}}
+
+  @media(max-width:768px){
+    nav{padding:14px 20px;}
+    .hamburger{display:flex;}
+    .nav-links{display:none;width:100%;flex-direction:column;gap:4px;padding:12px 0 6px;border-top:2px dashed var(--rose);margin-top:10px;}
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:10px 16px;border-radius:15px;font-size:1.15rem;}
+    .back-top{bottom:16px;right:16px;width:44px;height:44px;font-size:1.2rem;}
+  }
+</style>
+</head>
+<body>
+<div class="bg-hearts" id="bgHearts"></div>
+<div class="progress-bar" id="progressBar"></div>
+<div class="page-overlay" id="pageOverlay"></div>
+<button class="back-top" id="backTop" aria-label="Back to top">💕</button>
+
+<div class="announcement">🎨 New January Video Uploaded! &nbsp;<a href="tutorials.html">Watch our DIY Sunglasses Tutorial! ✨</a></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">💕 Art from the Heart</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" data-page="index">Home</a></li>
+    <li><a href="tutorials.html" data-page="tutorials">Tutorials</a></li>
+    <li><a href="leaders.html" data-page="leaders">Our Leaders</a></li>
+    <li><a href="mission.html" data-page="mission">Mission</a></li>
+    <li><a href="events.html" data-page="events">Past Events</a></li>
+    <li><a href="research.html" data-page="research">Research</a></li>
+    <li><a href="contact.html" data-page="contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <h1>Our Mission 💖</h1>
+  <p>Art That Heals, Hearts That Smile~</p>
+</div>
+<div class="wavy" style="background:;"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,80 L0,80 Z" fill="white"/></svg></div>
+
+<section class="content-section" style="background:white;">
+  <div class="content-inner">
+    <h2 class="section-label">What We Do 💕</h2>
+    <p class="section-sub">Three pillars of everything we stand for~</p>
+    <div class="pillars-grid">
+      <div class="pillar fade-in"><span class="icon">🎨</span><h3>Creativity</h3><p>We ignite a love for art and empower kids to express their imagination through fun, hands-on projects!</p></div>
+      <div class="pillar fade-in"><span class="icon">💪</span><h3>Wellness</h3><p>We teach children and teens about the wonders of the human body — healthy habits, mental well-being, and more!</p></div>
+      <div class="pillar fade-in"><span class="icon">🤝</span><h3>Community</h3><p>We assemble weekly goody bags for the Central Arkansas Library System — giving every kid access to art and learning!</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="wavy" style="background:white;"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,80 1440,40 L1440,80 L0,80 Z" fill="#ffd6e8"/></svg></div>
+
+<section class="content-section" style="background:var(--blush);">
+  <div class="content-inner">
+    <h2 class="section-label">Mission Statement 🌸</h2>
+    <p class="section-sub">In our own words~</p>
+    <div class="statement-block fade-in">
+      <p>Art from the Heart is dedicated to enriching the well-being of our community through creativity and compassion. Our goal is to ignite a love for art and empower kids to express their imagination. At the same time, we emphasize the importance of building healthy habits and prioritizing mental well-being. Through hands-on learning, our program introduces children and teens to the wonders of the human body, combining art and education in a fun and impactful way.</p>
+      <p>We assemble weekly goody bags to drop off at libraries that are part of the Central Arkansas Library System. These goody bags, along with lessons and tutorials on this website, teach kids of all ages about health and wellness!</p>
+      <p>Not everyone has access to art lessons or strong role models for healthy living. That's why Art from the Heart is here to give kids the tools to discover their artistic potential, explore their creativity, and learn about taking care of their bodies and minds. Through these goody bags, we hope to leave a lasting impression that inspires growth, confidence, and wellness in every child we reach. 💕</p>
+    </div>
+    <a class="btn-pink fade-in" href="mailto:artfromtheheartar@gmail.com">📧 Email Us for More Info!</a>
+  </div>
+</section>
+
+<div class="wavy" style="background:white;"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,80 1440,40 L1440,80 L0,80 Z" fill="#C8005C"/></svg></div>
+
+<footer>
+  <div class="f-logo">💕 Art from the Heart Initiative 💕</div>
+  <div class="f-tagline">Art That Heals, Hearts That Smile</div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="mission.html">Mission</a>
+    <a href="tutorials.html">Tutorials</a>
+    <a href="leaders.html">Our Leaders</a>
+    <a href="events.html">Past Events</a>
+    <a href="research.html">Research</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-social">
+    <a href="mailto:artfromtheheartar@gmail.com" class="social-btn">📧 Email Us</a>
+    <a href="https://www.instagram.com/artfromtheheartar/" target="_blank" rel="noopener" class="social-btn">📸 Instagram</a>
+  </div>
+  <p class="f-divider">💕 💕 💕</p>
+  <p class="f-credit">Made with love by students of Little Rock Central High School 🏫</p>
+  <div class="rs-credit">
+    <p>Website designed &amp; developed by</p>
+    <a href="https://rsdigital.vercel.app" target="_blank" rel="noopener" class="rs-name">RS Digital</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const bg=document.getElementById('bgHearts');
+  const emojis=['💕','💗','💖','💝','🌸','✨','🎨','💞','🌷'];
+  for(let i=0;i<20;i++){const h=document.createElement('div');h.className='bg-heart';h.textContent=emojis[Math.floor(Math.random()*emojis.length)];h.style.left=Math.random()*100+'vw';h.style.fontSize=(1.2+Math.random()*2.8)+'rem';h.style.animationDuration=(10+Math.random()*20)+'s';h.style.animationDelay=-(Math.random()*20)+'s';bg.appendChild(h);}
+  const bar=document.getElementById('progressBar');
+  window.addEventListener('scroll',()=>{const st=document.documentElement.scrollTop;const sh=document.documentElement.scrollHeight-document.documentElement.clientHeight;bar.style.width=(st/sh*100)+'%';},{passive:true});
+  const btt=document.getElementById('backTop');
+  window.addEventListener('scroll',()=>btt.classList.toggle('show',window.scrollY>400),{passive:true});
+  btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  const ham=document.getElementById('hamburger');const nav=document.getElementById('navLinks');
+  ham.addEventListener('click',()=>{ham.classList.toggle('open');nav.classList.toggle('open');});
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');nav.classList.remove('open');}));
+  const page=location.pathname.split('/').pop().replace('.html','')||'index';
+  document.querySelectorAll('.nav-links a').forEach(a=>{if((a.dataset.page||'')===(page||'index'))a.classList.add('active');});
+  const overlay=document.getElementById('pageOverlay');
+  document.querySelectorAll('a[href]').forEach(a=>{const href=a.getAttribute('href');if(!href||href.startsWith('#')||href.startsWith('mailto')||href.startsWith('http')||a.target==='_blank')return;a.addEventListener('click',e=>{e.preventDefault();overlay.classList.add('in');setTimeo
