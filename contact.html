@@ -154,7 +154,7 @@
       <h3>Email Us!</h3>
       <p><span class="handle">artfromtheheartar@gmail.com</span></p>
     </a>
-    <a class="contact-card fade-in" href="https://www.instagram.com/artfromtheheartar/" target="_blank" rel="noopener">
+    <a class="contact-card fade-in" href="https://www.instagram.com/artfromtheheartinitiative/" target="_blank" rel="noopener">
       <span class="icon">📸</span>
       <h3>Instagram</h3>
       <p>Follow us for updates!<br><span class="handle">@artfromtheheartar</span></p>
@@ -169,19 +169,21 @@
   <!-- INSTAGRAM + GROUPME PANELS WITH REAL IMAGES -->
   <div class="social-panels fade-in">
     <div class="social-panel">
-      <img class="social-panel-img"
-        src="https://lh3.googleusercontent.com/sitesv/AA5AbUD2pzBOwlophbys98NTRd4tHd-y0lNywj5XrKqJMhV8BzjgR2q3aAF1BcvXRRcDlDsyXAg8DI8HnftRMRsUP49ufnTMTDH8DU7JgUySJWHTiFTSQbZ6zdLxMUD5Tn5XikSnfG1h_FYIQJalR2sxcUvrWJNAFAfu2Z9X8igIbRpoAAEiXCiRbrUL0w4lZ9KMUII6b_Kh7iUo_zEYL6X74LOkELBoBoJPvIGJ=w1280"
-        alt="Follow us on Instagram" loading="lazy">
+      <div class="social-panel-img social-panel-placeholder" style="background:linear-gradient(135deg,#FF6BAE 0%,#FF9BCE 40%,#D966FF 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
+        <span style="font-size:4rem;">📸</span>
+        <span style="font-family:'Pacifico',cursive;color:white;font-size:1.1rem;text-shadow:2px 2px 0 rgba(0,0,0,0.15);">@artfromtheheartinitiative</span>
+      </div>
       <div class="social-panel-body">
         <h3>📸 Instagram</h3>
         <p>Stay up to date with our latest events, goody bag assemblies, and tutorials!</p>
-        <a class="social-panel-btn" href="https://www.instagram.com/artfromtheheartar/" target="_blank" rel="noopener">Follow @artfromtheheartar ✨</a>
+        <a class="social-panel-btn" href="https://www.instagram.com/artfromtheheartinitiative/" target="_blank" rel="noopener">Follow @artfromtheheartar ✨</a>
       </div>
     </div>
     <div class="social-panel">
-      <img class="social-panel-img"
-        src="https://lh3.googleusercontent.com/sitesv/AA5AbUAghPDnk79be_f0XL9plO5Rw7MzDVkU_ekezKfg-Ie3XSJuN_ek4ag6sLtUmCt9nPHzeQ0tL6wNci-td38y7n5Y18U5razaxKnrQgi1fHDxuO_rdO0yEXqQV9IaIJy-8qKVUU_eHwIKxwZazLq-8a_3y8XO0lGcMXz8V77HX0p2ZqLoh_MTtQLDQ04hK9mYkjCjAW0NfeEtVxpOT_D-ZxyYr8sVwZNcRIrqzds=w1280"
-        alt="Join our GroupMe" loading="lazy">
+      <div class="social-panel-img social-panel-placeholder" style="background:linear-gradient(135deg,#FF9BCE 0%,#FFE566 50%,#FF6BAE 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
+        <span style="font-size:4rem;">💬</span>
+        <span style="font-family:'Pacifico',cursive;color:white;font-size:1.1rem;text-shadow:2px 2px 0 rgba(0,0,0,0.15);">Join Our GroupMe</span>
+      </div>
       <div class="social-panel-body">
         <h3>💬 GroupMe</h3>
         <p>Connect with our club members and stay in the loop on all upcoming events!</p>
@@ -204,7 +206,7 @@
   </div>
   <div class="footer-social">
     <a href="mailto:artfromtheheartar@gmail.com" class="social-btn">📧 Email Us</a>
-    <a href="https://www.instagram.com/artfromtheheartar/" target="_blank" rel="noopener" class="social-btn">📸 Instagram</a>
+    <a href="https://www.instagram.com/artfromtheheartinitiative/" target="_blank" rel="noopener" class="social-btn">📸 Instagram</a>
   </div>
   <p class="f-divider">💕 💕 💕</p>
   <p class="f-credit">Made with love by students of Little Rock Central High School 🏫</p>
@@ -267,6 +269,11 @@
     if(a.getAttribute('data-page')===page)a.classList.add('active');
   });
   var overlay=document.getElementById('pageOverlay');
+    window.addEventListener('pageshow', function(e) {
+      var ov = document.getElementById('pageOverlay');
+      if (ov) { ov.classList.remove('in'); }
+    });
+
   if(overlay){
     document.querySelectorAll('a[href]').forEach(function(a){
       var href=a.getAttribute('href');
