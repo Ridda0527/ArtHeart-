@@ -6,11 +6,11 @@
 <title>Research 🔬 Art from the Heart Initiative</title>
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Caveat:wght@400;600;700&family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--hot-pink:#FF1F8E;--bubblegum:#FF6BB5;--rose:#FF9BCE;--blush:#FFD6E8;--pale:#FFF0F7;--magenta:#C8005C;--yellow-pop:#FFE566;--purple-pop:#D966FF;}
+  :root{--hot-pink:#FF6BAE;--bubblegum:#FF9BCE;--rose:#FFBED8;--blush:#FFD6E8;--pale:#FFF0F7;--magenta:#D4336E;--cream:#FFF5F9;--yellow-pop:#FFE566;--purple-pop:#D966FF;}
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{font-family:'Nunito',sans-serif;background:var(--pale);overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;}
-  body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,#FF6BB5 1.5px,transparent 1.5px);background-size:40px 40px;opacity:0.1;pointer-events:none;z-index:0;}
+  body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,#FFB3D1 1.5px,transparent 1.5px);background-size:40px 40px;opacity:0.1;pointer-events:none;z-index:0;}
   .bg-hearts{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
   .bg-heart{position:absolute;opacity:0.07;animation:floatHeart linear infinite;}
   @keyframes floatHeart{0%{transform:translateY(110vh) rotate(0deg);opacity:0}10%{opacity:0.07}90%{opacity:0.07}100%{transform:translateY(-10vh) rotate(360deg);opacity:0}}
@@ -19,8 +19,12 @@
   @keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
   .announcement a{color:var(--yellow-pop);text-decoration:underline;}
   nav{background:white;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:199;box-shadow:0 4px 20px rgba(255,31,142,0.15);border-bottom:3px dashed var(--rose);flex-wrap:wrap;}
-  .nav-logo{font-family:'Pacifico',cursive;font-size:1.5rem;color:var(--hot-pink);text-decoration:none;display:flex;align-items:center;gap:8px;transition:transform .2s;}
+  .nav-logo{font-family:'Pacifico',cursive;font-size:1.4rem;color:var(--hot-pink);text-decoration:none;display:flex;align-items:center;gap:10px;transition:transform .2s;}
   .nav-logo:hover{transform:scale(1.05) rotate(-1deg);}
+  .nav-logo img{height:42px;width:auto;object-fit:contain;}
+  .nav-logo-text{display:flex;flex-direction:column;line-height:1.1;}
+  .nav-logo-name{font-family:'Pacifico',cursive;font-size:1.1rem;color:var(--hot-pink);}
+  .nav-logo-tag{font-family:'Caveat',cursive;font-size:0.82rem;color:var(--magenta);font-weight:700;}
   .nav-links{display:flex;gap:6px;list-style:none;flex-wrap:wrap;justify-content:flex-end;}
   .nav-links a{font-family:'Caveat',cursive;font-size:1.1rem;font-weight:700;color:var(--magenta);text-decoration:none;padding:6px 13px;border-radius:50px;transition:all .25s;border:2px solid transparent;}
   .nav-links a:hover,.nav-links a.active{background:var(--blush);border-color:var(--rose);color:var(--hot-pink);transform:translateY(-2px) rotate(-1deg);}
@@ -98,7 +102,13 @@
 <div class="announcement">🎨 New January Video Uploaded! &nbsp;<a href="tutorials.html">Watch our DIY Sunglasses Tutorial! ✨</a></div>
 
 <nav>
-  <a class="nav-logo" href="index.html">💕 Art from the Heart</a>
+  <a class="nav-logo" href="index.html">
+    <img src="img-logo.png" alt="AHI Logo">
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">Art from the Heart</span>
+      <span class="nav-logo-tag">Initiative 💕</span>
+    </div>
+  </a>
   <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html" data-page="index">Home</a></li>
@@ -106,6 +116,7 @@
     <li><a href="leaders.html" data-page="leaders">Our Leaders</a></li>
     <li><a href="mission.html" data-page="mission">Mission</a></li>
     <li><a href="events.html" data-page="events">Past Events</a></li>
+    <li><a href="partners.html" data-page="partners">Partners</a></li>
     <li><a href="research.html" data-page="research">Research</a></li>
     <li><a href="contact.html" data-page="contact">Contact</a></li>
   </ul>
@@ -121,7 +132,7 @@
   </div>
 </div>
 
-<div class="wavy" style="background:linear-gradient(135deg,#FF1F8E,#D966FF);"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,80 L0,80 Z" fill="white"/></svg></div>
+<div class="wavy" style="background:linear-gradient(135deg,#FF6BAE,#D966FF);"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,80 L0,80 Z" fill="white"/></svg></div>
 
 <!-- TEASER: WHAT TO EXPECT -->
 <section class="teaser-section">
@@ -148,7 +159,7 @@
   </div>
 </section>
 
-<div class="wavy" style="background:white;"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,80 1440,40 L1440,80 L0,80 Z" fill="#C8005C"/></svg></div>
+<div class="wavy" style="background:white;"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,80 1440,40 L1440,80 L0,80 Z" fill="#D4336E"/></svg></div>
 
 <footer>
   <div class="f-logo">💕 Art from the Heart Initiative 💕</div>
@@ -156,7 +167,7 @@
   <div class="footer-links">
     <a href="index.html">Home</a><a href="mission.html">Mission</a><a href="tutorials.html">Tutorials</a>
     <a href="leaders.html">Our Leaders</a><a href="events.html">Past Events</a>
-    <a href="research.html">Research</a><a href="contact.html">Contact</a>
+    <a href="partners.html">Partners</a><a href="research.html">Research</a><a href="contact.html">Contact</a>
   </div>
   <div class="footer-social">
     <a href="mailto:artfromtheheartar@gmail.com" class="social-btn">📧 Email Us</a>
@@ -172,21 +183,105 @@
 
 <script>
 (function(){
-  const bg=document.getElementById('bgHearts');
-  const emojis=['💕','💗','💖','💝','🌸','✨','🎨','💞','🌷'];
-  for(let i=0;i<20;i++){const h=document.createElement('div');h.className='bg-heart';h.textContent=emojis[Math.floor(Math.random()*emojis.length)];h.style.left=Math.random()*100+'vw';h.style.fontSize=(1.2+Math.random()*2.8)+'rem';h.style.animationDuration=(10+Math.random()*20)+'s';h.style.animationDelay=-(Math.random()*20)+'s';bg.appendChild(h);}
-  const bar=document.getElementById('progressBar');
-  window.addEventListener('scroll',()=>{const st=document.documentElement.scrollTop;const sh=document.documentElement.scrollHeight-document.documentElement.clientHeight;if(sh>0)bar.style.width=(st/sh*100)+'%';},{passive:true});
-  const btt=document.getElementById('backTop');
-  window.addEventListener('scroll',()=>btt.classList.toggle('show',window.scrollY>400),{passive:true});
-  btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-  const ham=document.getElementById('hamburger');const nav=document.getElementById('navLinks');
-  ham.addEventListener('click',()=>{ham.classList.toggle('open');nav.classList.toggle('open');});
-  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');nav.classList.remove('open');}));
-  const page=location.pathname.split('/').pop().replace('.html','')||'index';
-  document.querySelectorAll('.nav-links a').forEach(a=>{if((a.dataset.page||'')===(page||'index'))a.classList.add('active');});
-  const overlay=document.getElementById('pageOverlay');
-  document.querySelectorAll('a[href]').forEach(a=>{const href=a.getAttribute('href');if(!href||href.startsWith('#')||href.startsWith('mailto')||href.startsWith('http')||a.target==='_blank')return;a.addEventListener('click',e=>{e.preventDefault();overlay.classList.add('in');setTimeout(()=>location.href=href,320);});});
+  var bg=document.getElementById('bgHearts');
+  if(bg){
+    var em=['💕','💗','💖','💝','🌸','✨','🎨','💞','🌷'];
+    for(var i=0;i<18;i++){
+      var h=document.createElement('div');
+      h.className='bg-heart';
+      h.textContent=em[Math.floor(Math.random()*em.length)];
+      h.style.left=Math.random()*100+'vw';
+      h.style.fontSize=(1.2+Math.random()*2.5)+'rem';
+      h.style.animationDuration=(10+Math.random()*18)+'s';
+      h.style.animationDelay=-(Math.random()*18)+'s';
+      bg.appendChild(h);
+    }
+  }
+  var bar=document.getElementById('progressBar');
+  if(bar){
+    window.addEventListener('scroll',function(){
+      var st=document.documentElement.scrollTop||document.body.scrollTop;
+      var sh=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+      if(sh>0)bar.style.width=(st/sh*100)+'%';
+    },{passive:true});
+  }
+  var btt=document.getElementById('backTop');
+  if(btt){
+    window.addEventListener('scroll',function(){
+      btt.classList.toggle('show',window.scrollY>400);
+    },{passive:true});
+    btt.addEventListener('click',function(){
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  }
+  var ham=document.getElementById('hamburger');
+  var navEl=document.getElementById('navLinks');
+  if(ham&&navEl){
+    ham.addEventListener('click',function(){
+      ham.classList.toggle('open');
+      navEl.classList.toggle('open');
+    });
+    navEl.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){
+        ham.classList.remove('open');
+        navEl.classList.remove('open');
+      });
+    });
+  }
+  var path=window.location.pathname;
+  var parts=path.split('/');
+  var last=parts[parts.length-1]||'';
+  var page=last.indexOf('.')>-1?last.substring(0,last.lastIndexOf('.')):last;
+  if(!page||page==='')page='index';
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    if(a.getAttribute('data-page')===page)a.classList.add('active');
+  });
+  var overlay=document.getElementById('pageOverlay');
+  if(overlay){
+    document.querySelectorAll('a[href]').forEach(function(a){
+      var href=a.getAttribute('href');
+      if(!href)return;
+      if(href.charAt(0)==='#')return;
+      if(href.substring(0,6)==='mailto')return;
+      if(href.substring(0,4)==='http')return;
+      if(a.target==='_blank')return;
+      a.addEventListener('click',function(e){
+        e.preventDefault();
+        overlay.classList.add('in');
+        setTimeout(function(){window.location.href=href;},320);
+      });
+    });
+  }
+  var counters=document.querySelectorAll('[data-target]');
+  if(counters.length>0&&window.IntersectionObserver){
+    var cobs=new IntersectionObserver(function(entries){
+      for(var ci=0;ci<entries.length;ci++){
+        var entry=entries[ci];
+        if(entry.isIntersecting){
+          var num=entry.target;
+          if(num.getAttribute('data-done'))continue;
+          num.setAttribute('data-done','1');
+          var tgt=parseInt(num.getAttribute('data-target'),10);
+          var steps=60;
+          var inc=tgt/steps;
+          var cur=0;
+          (function(el,target,increment){
+            var t=setInterval(function(){
+              cur+=increment;
+              if(cur>=target){
+                el.textContent=target+(target>=10?'+':'');
+                clearInterval(t);
+              } else {
+                el.textContent=Math.floor(cur)+(target>=10?'+':'');
+              }
+            },1800/steps);
+          })(num,tgt,inc);
+          cobs.unobserve(num);
+        }
+      }
+    },{threshold:0.3});
+    counters.forEach(function(el){cobs.observe(el);});
+  }
 })();
 </script>
 </body>
