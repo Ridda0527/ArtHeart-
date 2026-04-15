@@ -176,7 +176,7 @@
   </div>
   <div class="footer-social">
     <a href="mailto:artfromtheheartar@gmail.com" class="social-btn">📧 Email Us</a>
-    <a href="https://www.instagram.com/artfromtheheartar/" target="_blank" rel="noopener" class="social-btn">📸 Instagram</a>
+    <a href="https://www.instagram.com/artfromtheheartinitiative/" target="_blank" rel="noopener" class="social-btn">📸 Instagram</a>
   </div>
   <p class="f-divider">💕 💕 💕</p>
   <p class="f-credit">Made with love by students of Little Rock Central High School 🏫</p>
@@ -242,6 +242,11 @@
     if(a.getAttribute('data-page')===page)a.classList.add('active');
   });
   var overlay=document.getElementById('pageOverlay');
+    window.addEventListener('pageshow', function(e) {
+      var ov = document.getElementById('pageOverlay');
+      if (ov) { ov.classList.remove('in'); }
+    });
+
   if(overlay){
     document.querySelectorAll('a[href]').forEach(function(a){
       var href=a.getAttribute('href');
