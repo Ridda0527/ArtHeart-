@@ -82,6 +82,25 @@
   .ev-emoji{font-size:1.8rem;flex-shrink:0;}
   .ev-text{font-family:'Caveat',cursive;font-size:1.15rem;color:#555;line-height:1.55;font-weight:600;}
   .ev-text strong{color:var(--hot-pink);}
+  .ev-photo{width:130px;height:auto;border-radius:14px;border:2px solid var(--rose);flex-shrink:0;align-self:center;box-shadow:0 4px 14px rgba(255,107,174,0.18);transition:transform .25s;}
+  .ev-photo:hover{transform:scale(1.04);}
+  .event-featured{flex-direction:column;align-items:stretch;}
+  .ev-main{display:flex;align-items:flex-start;gap:16px;}
+  .ev-slideshow{margin-top:0;}
+  .slideshow-title{font-family:'Pacifico',cursive;color:var(--magenta);font-size:1.4rem;text-align:center;margin-bottom:14px;}
+  .carousel{position:relative;max-width:620px;margin:0 auto;border-radius:22px;overflow:hidden;border:3px solid var(--rose);box-shadow:0 10px 30px rgba(255,107,174,0.22);background:var(--pale);}
+  .car-frame{position:relative;width:100%;height:0;padding-bottom:75%;}
+  .slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity .6s ease;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .slide.active{opacity:1;}
+  .slide .bg{position:absolute;top:-24px;left:-24px;right:-24px;bottom:-24px;background-size:cover;background-position:center;filter:blur(16px) brightness(0.9);}
+  .slide img{position:relative;z-index:1;max-width:100%;max-height:100%;object-fit:contain;display:block;}
+  .car-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(255,255,255,0.85);border:none;width:44px;height:44px;border-radius:50%;font-family:Arial,Helvetica,sans-serif;font-size:1.5rem;font-weight:bold;line-height:1;color:var(--magenta);cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,0.18);display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;}
+  .car-btn:hover{background:#fff;transform:translateY(-50%) scale(1.08);}
+  .car-prev{left:12px;}
+  .car-next{right:12px;}
+  .car-dots{position:absolute;bottom:12px;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:8px;}
+  .dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.65);border:2px solid rgba(212,51,110,0.45);cursor:pointer;padding:0;transition:background .2s,transform .2s;}
+  .dot.active{background:var(--hot-pink);transform:scale(1.25);}
   .stats-bar{background:linear-gradient(135deg,var(--hot-pink),var(--bubblegum));border-radius:35px;padding:45px 40px;text-align:center;color:white;position:relative;overflow:hidden;}
   .stats-bar::before{content:'🌟';position:absolute;font-size:9rem;opacity:0.07;top:-20px;left:-20px;}
   .stats-bar h3{font-family:'Pacifico',cursive;font-size:1.8rem;margin-bottom:12px;}
@@ -98,6 +117,7 @@
     .nav-links.open{display:flex;}
     .nav-links a{padding:10px 16px;border-radius:15px;font-size:1.15rem;}
     .back-top{bottom:16px;right:16px;width:44px;height:44px;font-size:1.2rem;}
+    .ev-photo{width:104px;}
   }
 </style>
 </head>
@@ -141,21 +161,220 @@
     <h2 class="section-label">Our Journey 💖</h2>
     <p class="section-sub">Every event brings us closer to our community~</p>
     <div class="events-list fade-in">
-      <div class="event-item"><div class="ev-date">2/13/26</div><span class="ev-emoji">🤝</span><p class="ev-text"><strong>HOHP x AHI Collab!</strong> Members from AFH and HOHP gathered to assemble 200+ physical-activity-centered goody bags!</p></div>
-      <div class="event-item"><div class="ev-date">1/17/26</div><span class="ev-emoji">📚</span><p class="ev-text"><strong>Booth at the Library!</strong> Members came to help pass out DIY sunglasses kits, jellyfish craft kits, handmade positive-affirmation friendship bracelets, and brochures to library visitors!</p></div>
-      <div class="event-item"><div class="ev-date">1/16/26</div><span class="ev-emoji">🕶️</span><p class="ev-text"><strong>Goody Bag Assembly!</strong> Members came to assemble 60+ DIY sunglasses kits for the booth on Saturday.</p></div>
-      <div class="event-item"><div class="ev-date">11/15/25</div><span class="ev-emoji">🎉</span><p class="ev-text"><strong>First Booth at the Library!</strong> Members came to help pass out goody bags, handmade positive-affirmation friendship bracelets, and brochures to library visitors!</p></div>
-      <div class="event-item"><div class="ev-date">10/17/25</div><span class="ev-emoji">🪼</span><p class="ev-text"><strong>Goody Bag Assembly Meeting!</strong> Members assembled the relaxing jellyfish kits — 80 goody bags later brought to the local Children's Library for our first booth setup!</p></div>
-      <div class="event-item"><div class="ev-date">4/9/25</div><span class="ev-emoji">🌱</span><p class="ev-text"><strong>Goody Bag Assembly Meeting!</strong> Members from AFH and the school CARA club assembled mini garden-making kits. Almost 100 goody bags dropped off at the local Children's Library!</p></div>
-      <div class="event-item"><div class="ev-date">3/18/25</div><span class="ev-emoji">🎵</span><p class="ev-text"><strong>Goody Bag Assembly Meeting!</strong> 30 members came to help assemble maraca-making kits — 100 goody bags dropped off at the local Children's Library!</p></div>
-      <div class="event-item"><div class="ev-date">3/4/25</div><span class="ev-emoji">🌟</span><p class="ev-text"><strong>Introductory Meeting!</strong> 35 members came for our presentation on the club's mission and impact — the beginning of something wonderful!</p></div>
+      <div class="event-item event-featured">
+        <div class="ev-slideshow">
+          <h3 class="slideshow-title">📸 4/20/26 Period Product Care Package Assembly</h3>
+          <div class="carousel" id="periodCarousel">
+            <div class="car-frame">
+              <div class="slide active"><span class="bg" style="background-image:url('img-event-period.jpg')"></span><img src="img-event-period.jpg" alt="Period Product Care Package Assembly flyer — April 20th at the LRCH Library"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-period-1.jpg')"></span><img src="img-period-1.jpg" loading="lazy" alt="Tables stacked with donated period products at the LRCH Library"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-period-2.jpg')"></span><img src="img-period-2.jpg" loading="lazy" alt="Members gathered with the collected period product donations"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-period-3.jpg')"></span><img src="img-period-3.jpg" loading="lazy" alt="Members sorting period products into care packages"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-period-4.jpg')"></span><img src="img-period-4.jpg" loading="lazy" alt="Members organizing period product supplies at the tables"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-period-5.jpg')"></span><img src="img-period-5.jpg" loading="lazy" alt="Members holding up assembled period product care packages"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-period-6.jpg')"></span><img src="img-period-6.jpg" loading="lazy" alt="Members posing with the period product donations"></div>
+            </div>
+            <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
+            <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
+            <div class="car-dots">
+              <button class="dot active" type="button" aria-label="Photo 1"></button>
+              <button class="dot" type="button" aria-label="Photo 2"></button>
+              <button class="dot" type="button" aria-label="Photo 3"></button>
+              <button class="dot" type="button" aria-label="Photo 4"></button>
+              <button class="dot" type="button" aria-label="Photo 5"></button>
+              <button class="dot" type="button" aria-label="Photo 6"></button>
+              <button class="dot" type="button" aria-label="Photo 7"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="event-item event-featured">
+        <div class="ev-slideshow">
+          <h3 class="slideshow-title">📸 2/13/26 HOHP x AHI Physical Activity Kits</h3>
+          <div class="carousel" id="hohpCarousel">
+            <div class="car-frame">
+              <div class="slide active"><span class="bg" style="background-image:url('img-hohp-1.jpg')"></span><img src="img-hohp-1.jpg" alt="Presenter introducing the HOHP collaboration before assembly"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-hohp-2.jpg')"></span><img src="img-hohp-2.jpg" loading="lazy" alt="Members smiling at the table during the goody bag assembly"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-hohp-3.jpg')"></span><img src="img-hohp-3.jpg" loading="lazy" alt="Members assembling the physical-activity kit pieces"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-hohp-4.jpg')"></span><img src="img-hohp-4.jpg" loading="lazy" alt="Members sorting kit pieces into goody bags"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-hohp-5.jpg')"></span><img src="img-hohp-5.jpg" loading="lazy" alt="Members working together on the goody bag assembly"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-hohp-6.jpg')"></span><img src="img-hohp-6.jpg" loading="lazy" alt="Members preparing materials during the collaboration"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-hohp-7.jpg')"></span><img src="img-hohp-7.jpg" loading="lazy" alt="A member bagging the finished physical-activity kits"></div>
+            </div>
+            <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
+            <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
+            <div class="car-dots">
+              <button class="dot active" type="button" aria-label="Photo 1"></button>
+              <button class="dot" type="button" aria-label="Photo 2"></button>
+              <button class="dot" type="button" aria-label="Photo 3"></button>
+              <button class="dot" type="button" aria-label="Photo 4"></button>
+              <button class="dot" type="button" aria-label="Photo 5"></button>
+              <button class="dot" type="button" aria-label="Photo 6"></button>
+              <button class="dot" type="button" aria-label="Photo 7"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="event-item event-featured">
+        <div class="ev-slideshow">
+          <h3 class="slideshow-title">📸 1/17/26 Sunglasses Booth at the Library</h3>
+          <div class="carousel" id="sunboothCarousel">
+            <div class="car-frame">
+              <div class="slide active"><span class="bg" style="background-image:url('img-sunbooth-1.jpg')"></span><img src="img-sunbooth-1.jpg" alt="Members wearing decorated sunglasses at the library booth"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-sunbooth-2.jpg')"></span><img src="img-sunbooth-2.jpg" loading="lazy" alt="A young visitor showing off decorated sunglasses by the display board"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-sunbooth-3.jpg')"></span><img src="img-sunbooth-3.jpg" loading="lazy" alt="Young visitors decorating sunglasses at the booth table"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-sunbooth-4.jpg')"></span><img src="img-sunbooth-4.jpg" loading="lazy" alt="Visitors giving a thumbs up at the booth"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-sunbooth-5.jpg')"></span><img src="img-sunbooth-5.jpg" loading="lazy" alt="Library visitors with brochures at the Art from the Heart booth"></div>
+            </div>
+            <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
+            <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
+            <div class="car-dots">
+              <button class="dot active" type="button" aria-label="Photo 1"></button>
+              <button class="dot" type="button" aria-label="Photo 2"></button>
+              <button class="dot" type="button" aria-label="Photo 3"></button>
+              <button class="dot" type="button" aria-label="Photo 4"></button>
+              <button class="dot" type="button" aria-label="Photo 5"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="event-item event-featured">
+        <div class="ev-slideshow">
+          <h3 class="slideshow-title">📸 1/16/26 DIY Sunglasses Kits</h3>
+          <div class="carousel" id="glassesCarousel">
+            <div class="car-frame">
+              <div class="slide active"><span class="bg" style="background-image:url('img-glasses-1.jpg')"></span><img src="img-glasses-1.jpg" alt="Presenter showing the volunteer hours slide before the sunglasses kit assembly"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-glasses-2.jpg')"></span><img src="img-glasses-2.jpg" loading="lazy" alt="Members decorating DIY sunglasses kits at the table"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-glasses-3.jpg')"></span><img src="img-glasses-3.jpg" loading="lazy" alt="Members assembling sunglasses kits with gem sheets"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-glasses-4.jpg')"></span><img src="img-glasses-4.jpg" loading="lazy" alt="Members working on kits during the follow-us slide"></div>
+            </div>
+            <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
+            <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
+            <div class="car-dots">
+              <button class="dot active" type="button" aria-label="Photo 1"></button>
+              <button class="dot" type="button" aria-label="Photo 2"></button>
+              <button class="dot" type="button" aria-label="Photo 3"></button>
+              <button class="dot" type="button" aria-label="Photo 4"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="event-item event-featured">
+        <div class="ev-slideshow">
+          <h3 class="slideshow-title">📸 11/15/25 Jellyfish Booth at the Library</h3>
+          <div class="carousel" id="boothCarousel">
+            <div class="car-frame">
+              <div class="slide active"><span class="bg" style="background-image:url('img-booth-1.jpg')"></span><img src="img-booth-1.jpg" alt="Members setting up the Art from the Heart booth with the display board and goody bags"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-booth-2.jpg')"></span><img src="img-booth-2.jpg" loading="lazy" alt="Members at the library booth with the display board"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-booth-3.jpg')"></span><img src="img-booth-3.jpg" loading="lazy" alt="Members with a young visitor and family at the booth"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-booth-4.jpg')"></span><img src="img-booth-4.jpg" loading="lazy" alt="Members posing with a young library visitor at the booth"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-booth-5.jpg')"></span><img src="img-booth-5.jpg" loading="lazy" alt="Members holding brochures and a jellyfish craft at the booth"></div>
+            </div>
+            <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
+            <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
+            <div class="car-dots">
+              <button class="dot active" type="button" aria-label="Photo 1"></button>
+              <button class="dot" type="button" aria-label="Photo 2"></button>
+              <button class="dot" type="button" aria-label="Photo 3"></button>
+              <button class="dot" type="button" aria-label="Photo 4"></button>
+              <button class="dot" type="button" aria-label="Photo 5"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="event-item event-featured">
+        <div class="ev-slideshow">
+          <h3 class="slideshow-title">📸 10/17/25 Jellyfish Mental Health Goody Bags</h3>
+          <div class="carousel" id="jellyCarousel">
+            <div class="car-frame">
+              <div class="slide active"><span class="bg" style="background-image:url('img-jelly-1.jpg')"></span><img src="img-jelly-1.jpg" alt="Goody bag assembly stations slide during the jellyfish meeting"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-jelly-2.jpg')"></span><img src="img-jelly-2.jpg" loading="lazy" alt="Members listening to the jellyfish goody bag presentation"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-jelly-3.jpg')"></span><img src="img-jelly-3.jpg" loading="lazy" alt="Presenter showing the volunteer sign-up slide"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-jelly-4.jpg')"></span><img src="img-jelly-4.jpg" loading="lazy" alt="Members assembling jellyfish kits with paper strips"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-jelly-5.jpg')"></span><img src="img-jelly-5.jpg" loading="lazy" alt="Members cutting and rolling strips for the jellyfish kits"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-jelly-6.jpg')"></span><img src="img-jelly-6.jpg" loading="lazy" alt="Members preparing materials for the jellyfish goody bags"></div>
+            </div>
+            <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
+            <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
+            <div class="car-dots">
+              <button class="dot active" type="button" aria-label="Photo 1"></button>
+              <button class="dot" type="button" aria-label="Photo 2"></button>
+              <button class="dot" type="button" aria-label="Photo 3"></button>
+              <button class="dot" type="button" aria-label="Photo 4"></button>
+              <button class="dot" type="button" aria-label="Photo 5"></button>
+              <button class="dot" type="button" aria-label="Photo 6"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="event-item event-featured">
+        <div class="ev-slideshow">
+          <h3 class="slideshow-title">📸 4/9/25 Mini Garden-Making Kits</h3>
+          <div class="carousel" id="gardenCarousel">
+            <div class="car-frame">
+              <div class="slide active"><span class="bg" style="background-image:url('img-garden-1.jpg')"></span><img src="img-garden-1.jpg" alt="Member giving a thumbs up while assembling mini garden kits"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-garden-2.jpg')"></span><img src="img-garden-2.jpg" loading="lazy" alt="Leaders giving the CARA speech during the assembly meeting"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-garden-3.jpg')"></span><img src="img-garden-3.jpg" loading="lazy" alt="Members assembling the My Little Garden kits together"></div>
+            </div>
+            <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
+            <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
+            <div class="car-dots">
+              <button class="dot active" type="button" aria-label="Photo 1"></button>
+              <button class="dot" type="button" aria-label="Photo 2"></button>
+              <button class="dot" type="button" aria-label="Photo 3"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="event-item event-featured">
+        <div class="ev-slideshow">
+          <h3 class="slideshow-title">📸 3/18/25 Maraca Goody Bags</h3>
+          <div class="carousel" id="maracaCarousel">
+            <div class="car-frame">
+              <div class="slide active"><span class="bg" style="background-image:url('img-maraca-1.jpg')"></span><img src="img-maraca-1.jpg" alt="Members assembling colorful maraca goody bag kits"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-maraca-2.jpg')"></span><img src="img-maraca-2.jpg" loading="lazy" alt="Members working on maraca kits during the assembly meeting"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-maraca-3.jpg')"></span><img src="img-maraca-3.jpg" loading="lazy" alt="The full group assembling maraca goody bags together"></div>
+            </div>
+            <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
+            <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
+            <div class="car-dots">
+              <button class="dot active" type="button" aria-label="Photo 1"></button>
+              <button class="dot" type="button" aria-label="Photo 2"></button>
+              <button class="dot" type="button" aria-label="Photo 3"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="event-item event-featured">
+        <div class="ev-slideshow">
+          <h3 class="slideshow-title">📸 3/4/25 Introductory Meeting</h3>
+          <div class="carousel" id="introCarousel">
+            <div class="car-frame">
+              <div class="slide active"><span class="bg" style="background-image:url('img-intro-1.jpg')"></span><img src="img-intro-1.jpg" alt="Presenter introducing Art from the Heart at the introductory meeting"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-intro-2.jpg')"></span><img src="img-intro-2.jpg" loading="lazy" alt="Two club leaders by the Welcome to Art from the Heart slide"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-intro-3.jpg')"></span><img src="img-intro-3.jpg" loading="lazy" alt="Students seated during the introductory presentation"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-intro-4.jpg')"></span><img src="img-intro-4.jpg" loading="lazy" alt="Members watching and reacting during the meeting"></div>
+              <div class="slide"><span class="bg" style="background-image:url('img-intro-5.jpg')"></span><img src="img-intro-5.jpg" loading="lazy" alt="Members enjoying snacks and goody bags after the presentation"></div>
+            </div>
+            <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
+            <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
+            <div class="car-dots">
+              <button class="dot active" type="button" aria-label="Photo 1"></button>
+              <button class="dot" type="button" aria-label="Photo 2"></button>
+              <button class="dot" type="button" aria-label="Photo 3"></button>
+              <button class="dot" type="button" aria-label="Photo 4"></button>
+              <button class="dot" type="button" aria-label="Photo 5"></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="stats-bar fade-in">
       <h3>Our Impact So Far 💕</h3>
       <p>From our very first meeting to our latest collaboration, we've been making waves in the community!</p>
       <div class="stats-nums">
-        <div><span class="stat-num">440+</span><span class="stat-label">Goody Bags Made</span></div>
-        <div><span class="stat-num">8</span><span class="stat-label">Events Held</span></div>
+        <div><span class="stat-num">965+</span><span class="stat-label">Goody Bags Made</span></div>
+        <div><span class="stat-num">9</span><span class="stat-label">Events Held</span></div>
         <div><span class="stat-num">35+</span><span class="stat-label">Members</span></div>
       </div>
     </div>
@@ -293,6 +512,53 @@
       }
     },{threshold:0.3});
     counters.forEach(function(el){cobs.observe(el);});
+  }
+})();
+</script>
+<script>
+(function(){
+  var carousels=document.getElementsByClassName('carousel');
+  var c;
+  for(c=0;c<carousels.length;c++){
+    (function(carousel){
+      var slides=carousel.getElementsByClassName('slide');
+      var dots=carousel.getElementsByClassName('dot');
+      var idx=0;
+      var timer=null;
+      var DELAY=3000;
+      function show(n){
+        var i;
+        if(n<0){n=slides.length-1;}
+        if(n>=slides.length){n=0;}
+        idx=n;
+        for(i=0;i<slides.length;i++){
+          if(i===idx){slides[i].classList.add('active');}
+          else{slides[i].classList.remove('active');}
+        }
+        for(i=0;i<dots.length;i++){
+          if(i===idx){dots[i].classList.add('active');}
+          else{dots[i].classList.remove('active');}
+        }
+      }
+      function next(){show(idx+1);}
+      function prev(){show(idx-1);}
+      function stopTimer(){if(timer){clearInterval(timer);timer=null;}}
+      function startTimer(){stopTimer();timer=setInterval(next,DELAY);}
+      var nextBtn=carousel.querySelector('.car-next');
+      var prevBtn=carousel.querySelector('.car-prev');
+      if(nextBtn){nextBtn.addEventListener('click',function(){next();startTimer();});}
+      if(prevBtn){prevBtn.addEventListener('click',function(){prev();startTimer();});}
+      var di;
+      for(di=0;di<dots.length;di++){
+        (function(k){
+          dots[k].addEventListener('click',function(){show(k);startTimer();});
+        })(di);
+      }
+      carousel.addEventListener('mouseenter',stopTimer);
+      carousel.addEventListener('mouseleave',startTimer);
+      show(0);
+      startTimer();
+    })(carousels[c]);
   }
 })();
 </script>

@@ -62,7 +62,7 @@
 
   /* LEADER CARDS */
   .leaders-section{position:relative;z-index:1;background:var(--pale);padding:70px 20px;text-align:center;}
-  .leaders-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;max-width:820px;margin:0 auto 20px;}
+  .leaders-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:1040px;margin:0 auto 20px;}
   .leader-card{background:white;border:3px solid var(--rose);border-radius:35px;overflow:hidden;transition:all .35s;position:relative;box-shadow:0 8px 25px rgba(255,31,142,0.1);}
   .leader-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--hot-pink),var(--purple-pop));}
   .leader-card:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 24px 55px rgba(255,31,142,0.22);border-color:var(--hot-pink);}
@@ -150,7 +150,7 @@
   <div class="fade-in">
     <div class="school-pill">🏫 Students from Little Rock Central High School</div>
     <div class="team-photo-wrap">
-      <img class="team-photo" src="img-team.png"Lilian and June presenting Art from the Heart Initiative">
+      <img class="team-photo" src="img-team.png" alt="Lilian and June presenting Art from the Heart Initiative">
       <p class="photo-caption">Passionate about contributing to the community 💕</p>
     </div>
   </div>
@@ -177,6 +177,13 @@
         <span class="leader-role-badge">Vice President 💫</span>
       </div>
     </div>
+    <div class="leader-card">
+      <img class="leader-photo" src="img-ridda.jpg" alt="Ridda Saraheen, Website Manager">
+      <div class="leader-info">
+        <h3>Ridda Saraheen</h3>
+        <span class="leader-role-badge">Website Manager 💻</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -185,6 +192,7 @@
 <!-- BEMIGHTY -->
 <section class="bemighty-section">
   <div class="bemighty-inner fade-in">
+    <img src="img-bemighty.png" alt="BeMighty Little Rock logo" style="display:block;max-width:300px;width:78%;margin:0 auto 24px;background:#fff;padding:14px 22px;border-radius:22px;box-shadow:0 8px 24px rgba(0,0,0,0.12);">
     <h2>💪 BeMighty Little Rock</h2>
     <p>Our organization proudly collaborates with <strong>BeMighty Little Rock</strong> — a city-wide anti-hunger campaign aimed at connecting kids, teens, and families to free meals, cooking and nutrition education, food security resources, and opportunities to eat, play and learn. Together we're making a bigger impact for children across our community! 💕</p>
   </div>
