@@ -15,9 +15,9 @@
   .bg-heart{position:absolute;opacity:0.07;animation:floatHeart linear infinite;}
   @keyframes floatHeart{0%{transform:translateY(110vh) rotate(0deg);opacity:0}10%{opacity:0.07}90%{opacity:0.07}100%{transform:translateY(-10vh) rotate(360deg);opacity:0}}
   .progress-bar{position:fixed;top:0;left:0;height:4px;width:0%;background:linear-gradient(90deg,var(--hot-pink),var(--yellow-pop),var(--purple-pop));z-index:9999;border-radius:0 4px 4px 0;}
-  .announcement{background:linear-gradient(90deg,var(--hot-pink),var(--purple-pop),var(--hot-pink));background-size:200% auto;animation:shimmer 3s linear infinite;color:white;text-align:center;padding:10px 20px;font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;position:relative;z-index:200;}
+  .announcement{background:linear-gradient(90deg,var(--rose),var(--blush),var(--rose));background-size:200% auto;animation:shimmer 3s linear infinite;color:var(--magenta);text-align:center;padding:10px 20px;font-family:'Caveat',cursive;font-size:1.15rem;font-weight:700;position:relative;z-index:200;}
   @keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
-  .announcement a{color:var(--yellow-pop);text-decoration:underline;}
+  .announcement a{color:#A81C56;text-decoration:underline;}
   nav{background:white;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:199;box-shadow:0 4px 20px rgba(255,31,142,0.15);border-bottom:3px dashed var(--rose);flex-wrap:wrap;}
   .nav-logo{font-family:'Pacifico',cursive;font-size:1.4rem;color:var(--hot-pink);text-decoration:none;display:flex;align-items:center;gap:10px;transition:transform .2s;}
   .nav-logo:hover{transform:scale(1.05) rotate(-1deg);}
@@ -43,12 +43,12 @@
   @keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 
   /* MAIN CONTENT */
-  .main-content{flex:1;position:relative;z-index:1;background:linear-gradient(135deg,var(--hot-pink),var(--magenta),var(--purple-pop));display:flex;align-items:center;justify-content:center;padding:80px 20px;text-align:center;}
-  .coming-box{background:rgba(255,255,255,0.18);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:3px solid rgba(255,255,255,0.45);border-radius:50px;padding:70px 60px;max-width:620px;color:white;animation:heroFloat 4s ease-in-out infinite;position:relative;z-index:1;}
+  .main-content{flex:1;position:relative;z-index:1;background:linear-gradient(135deg,#FFDCEC 0%,#FFC6E2 50%,#FFACD6 100%);display:flex;align-items:center;justify-content:center;padding:80px 20px;text-align:center;}
+  .coming-box{background:rgba(255,255,255,0.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:3px solid rgba(255,255,255,0.45);border-radius:50px;padding:70px 60px;max-width:620px;color:#8A4663;animation:heroFloat 4s ease-in-out infinite;position:relative;z-index:1;}
   .eyes-big{font-size:5rem;display:block;margin-bottom:20px;}
-  .coming-box h1{font-family:'Pacifico',cursive;font-size:clamp(2rem,5vw,3rem);margin-bottom:18px;text-shadow:2px 2px 0 rgba(0,0,0,0.15);}
+  .coming-box h1{font-family:'Pacifico',cursive;font-size:clamp(2rem,5vw,3rem);margin-bottom:18px;text-shadow:2px 2px 0 rgba(255,255,255,0.65);color:var(--magenta);}
   .coming-box p{font-family:'Caveat',cursive;font-size:1.3rem;line-height:1.8;opacity:.95;margin-bottom:18px;}
-  .coming-box .hint{font-family:'Dancing Script',cursive;font-size:1.2rem;color:var(--yellow-pop);font-weight:700;}
+  .coming-box .hint{font-family:'Dancing Script',cursive;font-size:1.2rem;color:var(--magenta);font-weight:700;}
 
   /* TEASER CARDS */
   .teaser-section{position:relative;z-index:1;background:white;padding:70px 20px;}
@@ -88,7 +88,7 @@
     .nav-links.open{display:flex;}
     .nav-links a{padding:10px 16px;border-radius:15px;font-size:1.15rem;}
     .back-top{bottom:16px;right:16px;width:44px;height:44px;font-size:1.2rem;}
-    .coming-box{padding:45px 28px;}
+    .coming-box{padding:45px 28px;color:#8A4663;background:rgba(255,255,255,0.55);}
     .teaser-grid{grid-template-columns:1fr;}
   }
 </style>
@@ -132,7 +132,7 @@
   </div>
 </div>
 
-<div class="wavy" style="background:linear-gradient(135deg,#FF6BAE,#D966FF);"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,80 L0,80 Z" fill="white"/></svg></div>
+<div class="wavy" style="background:linear-gradient(135deg,#FF9BCE,#FFBED8);"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,80 L0,80 Z" fill="white"/></svg></div>
 
 <!-- TEASER: WHAT TO EXPECT -->
 <section class="teaser-section">
