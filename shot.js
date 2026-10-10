@@ -43,7 +43,12 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
   const ws = new WebSocket(wsUrl);
   await new Promise((res, rej) => { ws.onopen = res; ws.onerror = rej; });
   let id = 0; const pend = new Map();
+  const jsErrors = [];
   ws.onmessage = e => { const m = JSON.parse(e.data);
+    if (m.method === 'Runtime.exceptionThrown') {
+      const d = m.params.exceptionDetails;
+      jsErrors.push((d.exception && d.exception.description || d.text).split('\n')[0]);
+    }
     if (m.id && pend.has(m.id)) { pend.get(m.id)(m.result); pend.delete(m.id); } };
   const send = (m, p = {}) => new Promise(res => { const i = ++id; pend.set(i, res);
     ws.send(JSON.stringify({ id: i, method: m, params: p })); });
@@ -51,10 +56,12 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
     { expression: expr, returnByValue: true })).result.value;
 
   await send('Page.enable');
+  await send('Runtime.enable');
   await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile });
 
   let errors = 0;
   for (const p of pages) {
+    jsErrors.length = 0;
     await send('Page.navigate', { url: `${BASE}/${p}.html` });
     await sleep(2200);
 
@@ -81,10 +88,11 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
     let line = `  ${tag}: ${tiles} tiles (${docH}px tall)`;
     if (broken)  { line += `  BROKEN IMAGES: ${broken}`; errors++; }
     if (overflow){ line += `  HORIZONTAL OVERFLOW`; errors++; }
+    if (jsErrors.length) { line += `  JS ERRORS: ${jsErrors.join(' | ')}`; errors++; }
     console.log(line);
   }
 
-  console.log(errors ? `\n${errors} issue(s) found` : `\nno broken images, no overflow`);
+  console.log(errors ? `\n${errors} issue(s) found` : `\nno broken images, no overflow, no JS errors`);
   ws.close(); chrome.kill();
   try { fs.rmSync(profile, { recursive: true, force: true, maxRetries: 3 }); } catch {}
   process.exit(errors ? 1 : 0);

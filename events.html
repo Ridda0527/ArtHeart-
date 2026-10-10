@@ -87,6 +87,8 @@
   .event-featured{flex-direction:column;align-items:stretch;}
   .ev-main{display:flex;align-items:flex-start;gap:16px;}
   .ev-slideshow{margin-top:0;}
+  .slide-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,var(--blush),var(--rose));font-family:'Caveat',cursive;font-size:1.6rem;font-weight:700;color:var(--magenta);text-align:center;}
+  .slide-placeholder span{font-size:3.5rem;}
   .ev-desc{font-family:'Caveat',cursive;font-size:1.25rem;color:#555;line-height:1.6;font-weight:600;max-width:620px;margin:18px auto 0;text-align:center;}
   .slideshow-title{font-family:'Pacifico',cursive;color:var(--magenta);font-size:1.4rem;text-align:center;margin-bottom:14px;}
   .carousel{position:relative;max-width:620px;margin:0 auto;border-radius:22px;overflow:hidden;border:3px solid var(--rose);box-shadow:0 10px 30px rgba(255,107,174,0.22);background:var(--pale);}
@@ -162,6 +164,29 @@
     <h2 class="section-label">Our Journey 💖</h2>
     <p class="section-sub">Every event brings us closer to our community</p>
     <div class="events-list fade-in">
+      <div class="event-item event-featured">
+        <div class="ev-slideshow">
+          <h3 class="slideshow-title">📸 Dental Health Craft Kits with Access 2 Smiles</h3>
+          <div class="carousel">
+            <div class="car-frame">
+              <!-- PLACEHOLDER: swap in photos (and add the date to the title) when they're in the Drive -->
+              <div class="slide active slide-placeholder"><span>🦷</span>Photos coming soon!</div>
+            </div>
+          </div>
+          <p class="ev-desc">Together with Access 2 Smiles, we created dental health craft kits that teach kids how to take care of their teeth and keep their smiles healthy — all through fun, hands-on art! 🦷</p>
+        </div>
+      </div>
+      <div class="event-item event-featured">
+        <div class="ev-slideshow">
+          <h3 class="slideshow-title">📸 9/10/26 Fall Interest Meeting</h3>
+          <div class="carousel">
+            <div class="car-frame">
+              <div class="slide active"><span class="bg" style="background-image:url('img-intro26-1.jpg')"></span><img src="img-intro26-1.jpg" alt="Students listening as leaders present upcoming events at the fall interest meeting"></div>
+            </div>
+          </div>
+          <p class="ev-desc">Kicking off a brand-new school year! At our fall interest meeting, we welcomed new members and shared everything coming up — craft kit assemblies and library booths, nonprofit collabs, podcasts and videos, health awareness pamphlets, donation drives, and a hospital collab. We can't wait to see what this year brings! 🎉</p>
+        </div>
+      </div>
       <div class="event-item event-featured">
         <div class="ev-slideshow">
           <h3 class="slideshow-title">📸 4/20/26 Period Product Care Package Assembly</h3>
@@ -402,6 +427,7 @@
     <a href="tutorials.html">Tutorials</a>
     <a href="leaders.html">Our Leaders</a>
     <a href="events.html">Past Events</a>
+    <a href="partners.html">Partners</a>
     <a href="research.html">Research</a>
     <a href="contact.html">Contact</a>
   </div>
@@ -510,10 +536,10 @@
             var t=setInterval(function(){
               cur+=increment;
               if(cur>=target){
-                el.textContent=target+(target>=10?'+':'');
+                el.textContent=target.toLocaleString('en-US')+(target>=10?'+':'');
                 clearInterval(t);
               } else {
-                el.textContent=Math.floor(cur)+(target>=10?'+':'');
+                el.textContent=Math.floor(cur).toLocaleString('en-US')+(target>=10?'+':'');
               }
             },1800/steps);
           })(num,tgt,inc);

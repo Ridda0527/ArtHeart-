@@ -306,10 +306,10 @@
             var t=setInterval(function(){
               cur+=increment;
               if(cur>=target){
-                el.textContent=target+(target>=10?'+':'');
+                el.textContent=target.toLocaleString('en-US')+(target>=10?'+':'');
                 clearInterval(t);
               } else {
-                el.textContent=Math.floor(cur)+(target>=10?'+':'');
+                el.textContent=Math.floor(cur).toLocaleString('en-US')+(target>=10?'+':'');
               }
             },1800/steps);
           })(num,tgt,inc);

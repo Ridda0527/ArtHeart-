@@ -171,6 +171,7 @@
     <a href="tutorials.html">Tutorials</a>
     <a href="leaders.html">Our Leaders</a>
     <a href="events.html">Past Events</a>
+    <a href="partners.html">Partners</a>
     <a href="research.html">Research</a>
     <a href="contact.html">Contact</a>
   </div>
@@ -279,10 +280,10 @@
             var t=setInterval(function(){
               cur+=increment;
               if(cur>=target){
-                el.textContent=target+(target>=10?'+':'');
+                el.textContent=target.toLocaleString('en-US')+(target>=10?'+':'');
                 clearInterval(t);
               } else {
-                el.textContent=Math.floor(cur)+(target>=10?'+':'');
+                el.textContent=Math.floor(cur).toLocaleString('en-US')+(target>=10?'+':'');
               }
             },1800/steps);
           })(num,tgt,inc);
