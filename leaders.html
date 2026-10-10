@@ -5,8 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Meet the student leaders of Art from the Heart Initiative at Little Rock Central High School.">
 <title>Our Leaders 👑 Art from the Heart Initiative</title>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Caveat:wght@400;600;700&family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="img-favicon.png">
+<link rel="apple-touch-icon" href="img-favicon.png">
+<meta name="theme-color" content="#C2185B">
+<link rel="preload" href="fonts/pacifico-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/caveat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  @font-face{font-family:'Pacifico';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/pacifico-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+  @font-face{font-family:'Caveat';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/caveat-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+  @font-face{font-family:'Nunito';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/nunito-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+  @font-face{font-family:'Dancing Script';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/dancing-script-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
   :root{--hot-pink:#FF6BAE;--bubblegum:#FF9BCE;--rose:#FFBED8;--blush:#FFD6E8;--pale:#FFF0F7;--magenta:#D4336E;--cream:#FFF5F9;--yellow-pop:#FFE566;--purple-pop:#D966FF;}
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -20,15 +28,15 @@
   @keyframes shimmer{0%{background-position:0% center}100%{background-position:200% center}}
   .announcement a{color:#A81C56;text-decoration:underline;}
   nav{background:white;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:199;box-shadow:0 4px 20px rgba(255,31,142,0.15);border-bottom:3px dashed var(--rose);flex-wrap:wrap;}
-  .nav-logo{font-family:'Pacifico',cursive;font-size:1.4rem;color:var(--hot-pink);text-decoration:none;display:flex;align-items:center;gap:10px;transition:transform .2s;}
+  .nav-logo{font-family:'Pacifico',cursive;font-size:1.4rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px;transition:transform .2s;}
   .nav-logo:hover{transform:scale(1.05) rotate(-1deg);}
   .nav-logo img{height:42px;width:auto;object-fit:contain;}
   .nav-logo-text{display:flex;flex-direction:column;line-height:1.1;}
-  .nav-logo-name{font-family:'Pacifico',cursive;font-size:1.1rem;color:var(--hot-pink);}
+  .nav-logo-name{font-family:'Pacifico',cursive;font-size:1.1rem;color:var(--ink);}
   .nav-logo-tag{font-family:'Caveat',cursive;font-size:0.82rem;color:var(--magenta);font-weight:700;}
   .nav-links{display:flex;gap:6px;list-style:none;flex-wrap:wrap;justify-content:flex-end;}
   .nav-links a{font-family:'Caveat',cursive;font-size:1.1rem;font-weight:700;color:var(--magenta);text-decoration:none;padding:6px 13px;border-radius:50px;transition:all .25s;border:2px solid transparent;}
-  .nav-links a:hover,.nav-links a.active{background:var(--blush);border-color:var(--rose);color:var(--hot-pink);transform:translateY(-2px) rotate(-1deg);}
+  .nav-links a:hover,.nav-links a.active{background:var(--blush);border-color:var(--rose);color:var(--ink);transform:translateY(-2px) rotate(-1deg);}
   .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px;}
   .hamburger span{display:block;width:26px;height:3px;background:var(--hot-pink);border-radius:3px;transition:all .3s;}
   .hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
@@ -36,9 +44,9 @@
   .hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
   .wavy{width:100%;overflow:hidden;line-height:0;margin-top:-2px;}
   .wavy svg{display:block;width:100%;}
-  .section-label{font-family:'Pacifico',cursive;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--hot-pink);text-align:center;margin-bottom:8px;}
+  .section-label{font-family:'Pacifico',cursive;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--ink);text-align:center;margin-bottom:8px;}
   .section-label::after{content:'';display:block;height:5px;margin:8px auto 0;background:linear-gradient(90deg,var(--rose),var(--hot-pink),var(--purple-pop));border-radius:10px;width:160px;}
-  .section-sub{font-family:'Dancing Script',cursive;font-size:1.3rem;color:var(--bubblegum);text-align:center;margin-bottom:45px;}
+  .section-sub{font-family:'Dancing Script',cursive;font-size:1.3rem;color:var(--ink);text-align:center;margin-bottom:45px;}
   .back-top{position:fixed;bottom:28px;right:28px;background:linear-gradient(135deg,var(--hot-pink),var(--purple-pop));color:white;border:none;border-radius:50%;width:52px;height:52px;font-size:1.4rem;cursor:pointer;box-shadow:0 6px 20px rgba(255,31,142,0.4);transition:all .3s;z-index:300;opacity:0;pointer-events:none;display:flex;align-items:center;justify-content:center;}
   .back-top.show{opacity:1;pointer-events:all;}
   .back-top:hover{transform:translateY(-4px) scale(1.1);}
@@ -59,7 +67,7 @@
   .team-photo-wrap{max-width:860px;margin:0 auto;}
   .team-photo{width:100%;border-radius:30px;border:5px solid var(--rose);box-shadow:0 16px 45px rgba(255,31,142,0.2);display:block;transition:transform .3s;}
   .team-photo:hover{transform:scale(1.01);}
-  .photo-caption{font-family:'Dancing Script',cursive;font-size:1.35rem;color:var(--bubblegum);margin-top:16px;font-weight:700;}
+  .photo-caption{font-family:'Dancing Script',cursive;font-size:1.35rem;color:var(--ink);margin-top:16px;font-weight:700;}
 
   /* LEADER CARDS */
   .leaders-section{position:relative;z-index:1;background:var(--pale);padding:70px 20px;text-align:center;}
@@ -71,7 +79,7 @@
   .leader-photo-placeholder{display:flex;align-items:center;justify-content:center;font-size:6rem;background:linear-gradient(135deg,var(--blush),var(--rose));}
   @media(max-width:1024px) and (min-width:769px){.leaders-grid{grid-template-columns:repeat(2,1fr);max-width:720px;}}
   .leader-info{padding:25px 20px 32px;text-align:center;}
-  .leader-info h3{font-family:'Pacifico',cursive;font-size:1.5rem;color:var(--hot-pink);margin-bottom:6px;}
+  .leader-info h3{font-family:'Pacifico',cursive;font-size:1.5rem;color:var(--ink);margin-bottom:6px;}
   .leader-role-badge{display:inline-block;background:linear-gradient(135deg,var(--hot-pink),var(--bubblegum));color:white;font-family:'Caveat',cursive;font-size:1.1rem;font-weight:700;padding:5px 18px;border-radius:50px;margin-top:4px;}
 
   /* BEMIGHTY */
@@ -92,7 +100,7 @@
   .footer-links a:hover{background:rgba(255,255,255,0.2);color:white;}
   .footer-social{display:flex;justify-content:center;gap:15px;margin-bottom:22px;flex-wrap:wrap;}
   .social-btn{display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'Caveat',cursive;font-size:1.05rem;font-weight:700;padding:10px 24px;border-radius:50px;text-decoration:none;border:2px solid rgba(255,255,255,0.4);transition:all .3s;}
-  .social-btn:hover{background:white;color:var(--hot-pink);transform:translateY(-3px);}
+  .social-btn:hover{background:white;color:var(--ink);transform:translateY(-3px);}
   footer .f-divider{font-size:1.3rem;margin-bottom:12px;opacity:.5;}
   footer .f-credit{font-family:'Caveat',cursive;font-size:.95rem;opacity:.75;margin-bottom:20px;}
   .rs-credit{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.2);}
@@ -111,9 +119,28 @@
     .leader-photo{height:280px;}
     .bemighty-inner{padding:38px 26px;}
   }
+
+  /* ===== Accessibility (WCAG 2.1 AA) ===== */
+  :root{--ink:#C2185B;--ink-2:#D6246E;--magenta:#A61B57;}
+  .skip-link{position:absolute;left:12px;top:-60px;z-index:10000;background:var(--ink);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;padding:10px 18px;border-radius:0 0 12px 12px;text-decoration:none;}
+  .skip-link:focus{top:0;}
+  a:focus-visible,button:focus-visible{outline:3px solid #6A1B9A;outline-offset:3px;}
+  .hamburger span{background:var(--ink);}
+  /* white text needs a background of at least 4.5:1 */
+  .btn-pink,.gallery-btn,.partner-link,.arrow,.tut-month-badge,.social-panel-btn,.spot-card::before{background:var(--ink);}
+  .leader-role-badge,.partner-badge,.ev-date,.tut-watch-link,.back-top{background:linear-gradient(135deg,var(--ink),var(--ink-2));}
+  .bemighty-inner,.collab-blurb,.statement-block,.stats-bar,.cta-section,.ig-strip,.impact-section,footer{background:linear-gradient(135deg,var(--magenta),var(--ink),var(--ink-2));}
+  .legal-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-top:14px;font-family:'Nunito',sans-serif;font-size:.85rem;}
+  .legal-links a{color:#fff;text-decoration:underline;}
+  .copyright{font-family:'Nunito',sans-serif;font-size:.8rem;margin-top:10px;}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+    .bg-hearts{display:none;}
+  }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="bg-hearts" id="bgHearts"></div>
 <div class="progress-bar" id="progressBar"></div>
 <div class="page-overlay" id="pageOverlay"></div>
@@ -129,7 +156,7 @@
       <span class="nav-logo-tag">Initiative 💕</span>
     </div>
   </a>
-  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html" data-page="index">Home</a></li>
     <li><a href="tutorials.html" data-page="tutorials">Tutorials</a></li>
@@ -141,6 +168,7 @@
     <li><a href="contact.html" data-page="contact">Contact</a></li>
   </ul>
 </nav>
+<main id="main">
 
 <div class="page-hero">
   <h1>Our Leaders 👑</h1>
@@ -208,7 +236,9 @@
   </div>
 </section>
 
-<div class="wavy" style="background:white;"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,80 1440,40 L1440,80 L0,80 Z" fill="#D4336E"/></svg></div>
+<div class="wavy" style="background:white;"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,80 1440,40 L1440,80 L0,80 Z" fill="#A61B57"/></svg></div>
+
+</main>
 
 <footer>
   <div class="f-logo">💕 Art from the Heart Initiative 💕</div>
@@ -224,6 +254,8 @@
   </div>
   <p class="f-divider">💕 💕 💕</p>
   <p class="f-credit">Made with love by students of Little Rock Central High School 🏫</p>
+  <div class="legal-links"><a href="privacy.html">Privacy Policy</a><a href="accessibility.html">Accessibility</a></div>
+  <p class="copyright">&copy; 2026 Art from the Heart Initiative. All rights reserved.</p>
   <div class="rs-credit">
     <p>Website designed &amp; developed by</p>
     <a href="https://rsdigital.vercel.app" target="_blank" rel="noopener" class="rs-name">RS Digital</a>
@@ -267,13 +299,15 @@
   var navEl=document.getElementById('navLinks');
   if(ham&&navEl){
     ham.addEventListener('click',function(){
-      ham.classList.toggle('open');
-      navEl.classList.toggle('open');
+      var open=navEl.classList.toggle('open');
+      ham.classList.toggle('open',open);
+      ham.setAttribute('aria-expanded',open?'true':'false');
     });
     navEl.querySelectorAll('a').forEach(function(a){
       a.addEventListener('click',function(){
         ham.classList.remove('open');
         navEl.classList.remove('open');
+        ham.setAttribute('aria-expanded','false');
       });
     });
   }

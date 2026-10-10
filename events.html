@@ -5,8 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Past Events 💕 Art from the Heart Initiative</title>
 <meta name="description" content="Art from the Heart Initiative — enriching our community through creativity and compassion.">
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Caveat:wght@400;600;700&family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="img-favicon.png">
+<link rel="apple-touch-icon" href="img-favicon.png">
+<meta name="theme-color" content="#C2185B">
+<link rel="preload" href="fonts/pacifico-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/caveat-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  @font-face{font-family:'Pacifico';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/pacifico-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+  @font-face{font-family:'Caveat';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/caveat-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+  @font-face{font-family:'Nunito';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/nunito-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+  @font-face{font-family:'Dancing Script';font-style:normal;font-weight:400 700;font-display:swap;src:url(fonts/dancing-script-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
   :root{--hot-pink:#FF6BAE;--bubblegum:#FF9BCE;--rose:#FFBED8;--blush:#FFD6E8;--pale:#FFF0F7;--magenta:#D4336E;--cream:#FFF5F9;--yellow-pop:#FFE566;--purple-pop:#D966FF;}
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -21,15 +29,15 @@
   .announcement a{color:#A81C56;text-decoration:underline;}
   .announcement a:hover{opacity:.8;}
   nav{background:white;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:199;box-shadow:0 4px 20px rgba(255,31,142,0.15);border-bottom:3px dashed var(--rose);flex-wrap:wrap;}
-  .nav-logo{font-family:'Pacifico',cursive;font-size:1.4rem;color:var(--hot-pink);text-decoration:none;display:flex;align-items:center;gap:10px;transition:transform .2s;}
+  .nav-logo{font-family:'Pacifico',cursive;font-size:1.4rem;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px;transition:transform .2s;}
   .nav-logo:hover{transform:scale(1.05) rotate(-1deg);}
   .nav-logo img{height:42px;width:auto;object-fit:contain;}
   .nav-logo-text{display:flex;flex-direction:column;line-height:1.1;}
-  .nav-logo-name{font-family:'Pacifico',cursive;font-size:1.1rem;color:var(--hot-pink);}
+  .nav-logo-name{font-family:'Pacifico',cursive;font-size:1.1rem;color:var(--ink);}
   .nav-logo-tag{font-family:'Caveat',cursive;font-size:0.82rem;color:var(--magenta);font-weight:700;}
   .nav-links{display:flex;gap:6px;list-style:none;flex-wrap:wrap;justify-content:flex-end;}
   .nav-links a{font-family:'Caveat',cursive;font-size:1.1rem;font-weight:700;color:var(--magenta);text-decoration:none;padding:6px 13px;border-radius:50px;transition:all .25s;border:2px solid transparent;}
-  .nav-links a:hover,.nav-links a.active{background:var(--blush);border-color:var(--rose);color:var(--hot-pink);transform:translateY(-2px) rotate(-1deg);}
+  .nav-links a:hover,.nav-links a.active{background:var(--blush);border-color:var(--rose);color:var(--ink);transform:translateY(-2px) rotate(-1deg);}
   .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px;}
   .hamburger span{display:block;width:26px;height:3px;background:var(--hot-pink);border-radius:3px;transition:all .3s;}
   .hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
@@ -37,9 +45,9 @@
   .hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
   .wavy{width:100%;overflow:hidden;line-height:0;margin-top:-2px;}
   .wavy svg{display:block;width:100%;}
-  .section-label{font-family:'Pacifico',cursive;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--hot-pink);text-align:center;margin-bottom:8px;}
+  .section-label{font-family:'Pacifico',cursive;font-size:clamp(1.8rem,4vw,2.6rem);color:var(--ink);text-align:center;margin-bottom:8px;}
   .section-label::after{content:'';display:block;height:5px;margin:8px auto 0;background:linear-gradient(90deg,var(--rose),var(--hot-pink),var(--purple-pop));border-radius:10px;width:160px;}
-  .section-sub{font-family:'Dancing Script',cursive;font-size:1.3rem;color:var(--bubblegum);text-align:center;margin-bottom:45px;}
+  .section-sub{font-family:'Dancing Script',cursive;font-size:1.3rem;color:var(--ink);text-align:center;margin-bottom:45px;}
   .btn-pink{display:inline-block;background:var(--hot-pink);color:white;font-family:'Pacifico',cursive;font-size:.95rem;padding:12px 28px;border-radius:50px;text-decoration:none;transition:all .3s;box-shadow:0 6px 20px rgba(255,31,142,0.3);}
   .btn-pink:hover{background:var(--magenta);transform:translateY(-4px) scale(1.04);}
   .back-top{position:fixed;bottom:28px;right:28px;background:linear-gradient(135deg,var(--hot-pink),var(--purple-pop));color:white;border:none;border-radius:50%;width:52px;height:52px;font-size:1.4rem;cursor:pointer;box-shadow:0 6px 20px rgba(255,31,142,0.4);transition:all .3s;z-index:300;opacity:0;pointer-events:none;display:flex;align-items:center;justify-content:center;}
@@ -62,7 +70,7 @@
   .footer-links a:hover{background:rgba(255,255,255,0.2);color:white;}
   .footer-social{display:flex;justify-content:center;gap:15px;margin-bottom:22px;flex-wrap:wrap;}
   .social-btn{display:inline-block;background:rgba(255,255,255,0.15);color:white;font-family:'Caveat',cursive;font-size:1.05rem;font-weight:700;padding:10px 24px;border-radius:50px;text-decoration:none;border:2px solid rgba(255,255,255,0.4);transition:all .3s;}
-  .social-btn:hover{background:white;color:var(--hot-pink);transform:translateY(-3px);}
+  .social-btn:hover{background:white;color:var(--ink);transform:translateY(-3px);}
   footer .f-divider{font-size:1.3rem;margin-bottom:12px;opacity:.5;}
   footer .f-credit{font-family:'Caveat',cursive;font-size:.95rem;opacity:.75;margin-bottom:20px;}
   .rs-credit{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.2);}
@@ -81,7 +89,7 @@
   .ev-date{background:linear-gradient(135deg,var(--hot-pink),var(--bubblegum));color:white;font-family:'Pacifico',cursive;font-size:.78rem;padding:6px 14px;border-radius:50px;white-space:nowrap;flex-shrink:0;align-self:flex-start;margin-top:2px;}
   .ev-emoji{font-size:1.8rem;flex-shrink:0;}
   .ev-text{font-family:'Caveat',cursive;font-size:1.15rem;color:#555;line-height:1.55;font-weight:600;}
-  .ev-text strong{color:var(--hot-pink);}
+  .ev-text strong{color:var(--ink);}
   .ev-photo{width:130px;height:auto;border-radius:14px;border:2px solid var(--rose);flex-shrink:0;align-self:center;box-shadow:0 4px 14px rgba(255,107,174,0.18);transition:transform .25s;}
   .ev-photo:hover{transform:scale(1.04);}
   .event-featured{flex-direction:column;align-items:stretch;}
@@ -95,15 +103,17 @@
   .car-frame{position:relative;width:100%;height:0;padding-bottom:75%;}
   .slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity .6s ease;display:flex;align-items:center;justify-content:center;overflow:hidden;}
   .slide.active{opacity:1;}
-  .slide .bg{position:absolute;top:-24px;left:-24px;right:-24px;bottom:-24px;background-size:cover;background-position:center;filter:blur(16px) brightness(0.9);}
+  .slide img.bg{position:absolute;z-index:0;top:-24px;left:-24px;width:calc(100% + 48px);height:calc(100% + 48px);max-width:none;max-height:none;object-fit:cover;filter:blur(16px) brightness(0.9);}
   .slide img{position:relative;z-index:1;max-width:100%;max-height:100%;object-fit:contain;display:block;}
   .car-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:3;background:rgba(255,255,255,0.85);border:none;width:44px;height:44px;border-radius:50%;font-family:Arial,Helvetica,sans-serif;font-size:1.5rem;font-weight:bold;line-height:1;color:var(--magenta);cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,0.18);display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s;}
   .car-btn:hover{background:#fff;transform:translateY(-50%) scale(1.08);}
   .car-prev{left:12px;}
   .car-next{right:12px;}
-  .car-dots{position:absolute;bottom:12px;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:8px;}
-  .dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.65);border:2px solid rgba(212,51,110,0.45);cursor:pointer;padding:0;transition:background .2s,transform .2s;}
-  .dot.active{background:var(--hot-pink);transform:scale(1.25);}
+  .car-dots{position:absolute;bottom:6px;left:0;right:0;z-index:3;display:flex;justify-content:center;gap:2px;}
+  .dot{position:relative;width:24px;height:24px;border-radius:50%;background:transparent;border:none;cursor:pointer;padding:0;}
+  .dot::before{content:'';position:absolute;top:6px;left:6px;width:12px;height:12px;box-sizing:border-box;border-radius:50%;background:rgba(255,255,255,0.8);border:2px solid rgba(166,27,87,0.7);transition:background .2s,transform .2s;}
+  .dot.active::before{background:var(--ink);border-color:#fff;transform:scale(1.25);}
+  .car-pause{position:absolute;top:10px;right:10px;z-index:3;width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,0.9);color:var(--magenta);font-size:.9rem;font-weight:bold;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,0.18);display:flex;align-items:center;justify-content:center;font-family:Arial,Helvetica,sans-serif;}
   .stats-bar{background:linear-gradient(135deg,var(--hot-pink),var(--bubblegum));border-radius:35px;padding:45px 40px;text-align:center;color:white;position:relative;overflow:hidden;}
   .stats-bar::before{content:'🌟';position:absolute;font-size:9rem;opacity:0.07;top:-20px;left:-20px;}
   .stats-bar h3{font-family:'Pacifico',cursive;font-size:1.8rem;margin-bottom:12px;}
@@ -122,9 +132,28 @@
     .back-top{bottom:16px;right:16px;width:44px;height:44px;font-size:1.2rem;}
     .ev-photo{width:104px;}
   }
+
+  /* ===== Accessibility (WCAG 2.1 AA) ===== */
+  :root{--ink:#C2185B;--ink-2:#D6246E;--magenta:#A61B57;}
+  .skip-link{position:absolute;left:12px;top:-60px;z-index:10000;background:var(--ink);color:#fff;font-family:'Nunito',sans-serif;font-weight:800;padding:10px 18px;border-radius:0 0 12px 12px;text-decoration:none;}
+  .skip-link:focus{top:0;}
+  a:focus-visible,button:focus-visible{outline:3px solid #6A1B9A;outline-offset:3px;}
+  .hamburger span{background:var(--ink);}
+  /* white text needs a background of at least 4.5:1 */
+  .btn-pink,.gallery-btn,.partner-link,.arrow,.tut-month-badge,.social-panel-btn,.spot-card::before{background:var(--ink);}
+  .leader-role-badge,.partner-badge,.ev-date,.tut-watch-link,.back-top{background:linear-gradient(135deg,var(--ink),var(--ink-2));}
+  .bemighty-inner,.collab-blurb,.statement-block,.stats-bar,.cta-section,.ig-strip,.impact-section,footer{background:linear-gradient(135deg,var(--magenta),var(--ink),var(--ink-2));}
+  .legal-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-top:14px;font-family:'Nunito',sans-serif;font-size:.85rem;}
+  .legal-links a{color:#fff;text-decoration:underline;}
+  .copyright{font-family:'Nunito',sans-serif;font-size:.8rem;margin-top:10px;}
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+    .bg-hearts{display:none;}
+  }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 <div class="bg-hearts" id="bgHearts"></div>
 <div class="progress-bar" id="progressBar"></div>
 <div class="page-overlay" id="pageOverlay"></div>
@@ -140,7 +169,7 @@
       <span class="nav-logo-tag">Initiative 💕</span>
     </div>
   </a>
-  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html" data-page="index">Home</a></li>
     <li><a href="tutorials.html" data-page="tutorials">Tutorials</a></li>
@@ -152,6 +181,7 @@
     <li><a href="contact.html" data-page="contact">Contact</a></li>
   </ul>
 </nav>
+<main id="main">
 
 <div class="page-hero">
   <h1>Past Events 📅</h1>
@@ -181,7 +211,7 @@
           <h3 class="slideshow-title">📸 9/10/26 Fall Interest Meeting</h3>
           <div class="carousel">
             <div class="car-frame">
-              <div class="slide active"><span class="bg" style="background-image:url('img-intro26-1.jpg')"></span><img src="img-intro26-1.jpg" alt="Students listening as leaders present upcoming events at the fall interest meeting"></div>
+              <div class="slide active"><img class="bg" src="img-intro26-1.jpg" alt="" loading="lazy" decoding="async"><img fetchpriority="high" src="img-intro26-1.jpg" alt="Students listening as leaders present upcoming events at the fall interest meeting"></div>
             </div>
           </div>
           <p class="ev-desc">Kicking off a brand-new school year! At our fall interest meeting, we welcomed new members and shared everything coming up — craft kit assemblies and library booths, nonprofit collabs, podcasts and videos, health awareness pamphlets, donation drives, and a hospital collab. We can't wait to see what this year brings! 🎉</p>
@@ -192,13 +222,13 @@
           <h3 class="slideshow-title">📸 4/20/26 Period Product Care Package Assembly</h3>
           <div class="carousel" id="periodCarousel">
             <div class="car-frame">
-              <div class="slide active"><span class="bg" style="background-image:url('img-event-period.jpg')"></span><img src="img-event-period.jpg" alt="Period Product Care Package Assembly flyer — April 20th at the LRCH Library"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-period-1.jpg')"></span><img src="img-period-1.jpg" loading="lazy" alt="Tables stacked with donated period products at the LRCH Library"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-period-2.jpg')"></span><img src="img-period-2.jpg" loading="lazy" alt="Members gathered with the collected period product donations"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-period-3.jpg')"></span><img src="img-period-3.jpg" loading="lazy" alt="Members sorting period products into care packages"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-period-4.jpg')"></span><img src="img-period-4.jpg" loading="lazy" alt="Members organizing period product supplies at the tables"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-period-5.jpg')"></span><img src="img-period-5.jpg" loading="lazy" alt="Members holding up assembled period product care packages"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-period-6.jpg')"></span><img src="img-period-6.jpg" loading="lazy" alt="Members posing with the period product donations"></div>
+              <div class="slide active"><img class="bg" src="img-event-period.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" loading="lazy" src="img-event-period.jpg" alt="Period Product Care Package Assembly flyer — April 20th at the LRCH Library"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-period-1.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-period-1.jpg" loading="lazy" alt="Tables stacked with donated period products at the LRCH Library"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-period-2.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-period-2.jpg" loading="lazy" alt="Members gathered with the collected period product donations"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-period-3.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-period-3.jpg" loading="lazy" alt="Members sorting period products into care packages"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-period-4.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-period-4.jpg" loading="lazy" alt="Members organizing period product supplies at the tables"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-period-5.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-period-5.jpg" loading="lazy" alt="Members holding up assembled period product care packages"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-period-6.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-period-6.jpg" loading="lazy" alt="Members posing with the period product donations"></div>
             </div>
             <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
             <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
@@ -220,13 +250,13 @@
           <h3 class="slideshow-title">📸 2/13/26 HOHP x AHI Physical Activity Kits</h3>
           <div class="carousel" id="hohpCarousel">
             <div class="car-frame">
-              <div class="slide active"><span class="bg" style="background-image:url('img-hohp-1.jpg')"></span><img src="img-hohp-1.jpg" alt="Presenter introducing the HOHP collaboration before assembly"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-hohp-2.jpg')"></span><img src="img-hohp-2.jpg" loading="lazy" alt="Members smiling at the table during the goody bag assembly"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-hohp-3.jpg')"></span><img src="img-hohp-3.jpg" loading="lazy" alt="Members assembling the physical-activity kit pieces"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-hohp-4.jpg')"></span><img src="img-hohp-4.jpg" loading="lazy" alt="Members sorting kit pieces into goody bags"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-hohp-5.jpg')"></span><img src="img-hohp-5.jpg" loading="lazy" alt="Members working together on the goody bag assembly"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-hohp-6.jpg')"></span><img src="img-hohp-6.jpg" loading="lazy" alt="Members preparing materials during the collaboration"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-hohp-7.jpg')"></span><img src="img-hohp-7.jpg" loading="lazy" alt="A member bagging the finished physical-activity kits"></div>
+              <div class="slide active"><img class="bg" src="img-hohp-1.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" loading="lazy" src="img-hohp-1.jpg" alt="Presenter introducing the HOHP collaboration before assembly"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-hohp-2.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-hohp-2.jpg" loading="lazy" alt="Members smiling at the table during the goody bag assembly"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-hohp-3.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-hohp-3.jpg" loading="lazy" alt="Members assembling the physical-activity kit pieces"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-hohp-4.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-hohp-4.jpg" loading="lazy" alt="Members sorting kit pieces into goody bags"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-hohp-5.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-hohp-5.jpg" loading="lazy" alt="Members working together on the goody bag assembly"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-hohp-6.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-hohp-6.jpg" loading="lazy" alt="Members preparing materials during the collaboration"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-hohp-7.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-hohp-7.jpg" loading="lazy" alt="A member bagging the finished physical-activity kits"></div>
             </div>
             <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
             <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
@@ -248,11 +278,11 @@
           <h3 class="slideshow-title">📸 1/17/26 Sunglasses Booth at the Library</h3>
           <div class="carousel" id="sunboothCarousel">
             <div class="car-frame">
-              <div class="slide active"><span class="bg" style="background-image:url('img-sunbooth-1.jpg')"></span><img src="img-sunbooth-1.jpg" alt="Members wearing decorated sunglasses at the library booth"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-sunbooth-2.jpg')"></span><img src="img-sunbooth-2.jpg" loading="lazy" alt="A young visitor showing off decorated sunglasses by the display board"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-sunbooth-3.jpg')"></span><img src="img-sunbooth-3.jpg" loading="lazy" alt="Young visitors decorating sunglasses at the booth table"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-sunbooth-4.jpg')"></span><img src="img-sunbooth-4.jpg" loading="lazy" alt="Visitors giving a thumbs up at the booth"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-sunbooth-5.jpg')"></span><img src="img-sunbooth-5.jpg" loading="lazy" alt="Library visitors with brochures at the Art from the Heart booth"></div>
+              <div class="slide active"><img class="bg" src="img-sunbooth-1.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" loading="lazy" src="img-sunbooth-1.jpg" alt="Members wearing decorated sunglasses at the library booth"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-sunbooth-2.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-sunbooth-2.jpg" loading="lazy" alt="A young visitor showing off decorated sunglasses by the display board"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-sunbooth-3.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-sunbooth-3.jpg" loading="lazy" alt="Young visitors decorating sunglasses at the booth table"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-sunbooth-4.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-sunbooth-4.jpg" loading="lazy" alt="Visitors giving a thumbs up at the booth"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-sunbooth-5.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-sunbooth-5.jpg" loading="lazy" alt="Library visitors with brochures at the Art from the Heart booth"></div>
             </div>
             <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
             <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
@@ -272,10 +302,10 @@
           <h3 class="slideshow-title">📸 1/16/26 DIY Sunglasses Kits</h3>
           <div class="carousel" id="glassesCarousel">
             <div class="car-frame">
-              <div class="slide active"><span class="bg" style="background-image:url('img-glasses-1.jpg')"></span><img src="img-glasses-1.jpg" alt="Presenter showing the volunteer hours slide before the sunglasses kit assembly"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-glasses-2.jpg')"></span><img src="img-glasses-2.jpg" loading="lazy" alt="Members decorating DIY sunglasses kits at the table"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-glasses-3.jpg')"></span><img src="img-glasses-3.jpg" loading="lazy" alt="Members assembling sunglasses kits with gem sheets"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-glasses-4.jpg')"></span><img src="img-glasses-4.jpg" loading="lazy" alt="Members working on kits during the follow-us slide"></div>
+              <div class="slide active"><img class="bg" src="img-glasses-1.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" loading="lazy" src="img-glasses-1.jpg" alt="Presenter showing the volunteer hours slide before the sunglasses kit assembly"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-glasses-2.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-glasses-2.jpg" loading="lazy" alt="Members decorating DIY sunglasses kits at the table"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-glasses-3.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-glasses-3.jpg" loading="lazy" alt="Members assembling sunglasses kits with gem sheets"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-glasses-4.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-glasses-4.jpg" loading="lazy" alt="Members working on kits during the follow-us slide"></div>
             </div>
             <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
             <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
@@ -294,11 +324,11 @@
           <h3 class="slideshow-title">📸 11/15/25 Jellyfish Booth at the Library</h3>
           <div class="carousel" id="boothCarousel">
             <div class="car-frame">
-              <div class="slide active"><span class="bg" style="background-image:url('img-booth-1.jpg')"></span><img src="img-booth-1.jpg" alt="Members setting up the Art from the Heart booth with the display board and goody bags"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-booth-2.jpg')"></span><img src="img-booth-2.jpg" loading="lazy" alt="Members at the library booth with the display board"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-booth-3.jpg')"></span><img src="img-booth-3.jpg" loading="lazy" alt="Members with a young visitor and family at the booth"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-booth-4.jpg')"></span><img src="img-booth-4.jpg" loading="lazy" alt="Members posing with a young library visitor at the booth"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-booth-5.jpg')"></span><img src="img-booth-5.jpg" loading="lazy" alt="Members holding brochures and a jellyfish craft at the booth"></div>
+              <div class="slide active"><img class="bg" src="img-booth-1.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" loading="lazy" src="img-booth-1.jpg" alt="Members setting up the Art from the Heart booth with the display board and goody bags"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-booth-2.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-booth-2.jpg" loading="lazy" alt="Members at the library booth with the display board"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-booth-3.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-booth-3.jpg" loading="lazy" alt="Members with a young visitor and family at the booth"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-booth-4.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-booth-4.jpg" loading="lazy" alt="Members posing with a young library visitor at the booth"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-booth-5.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-booth-5.jpg" loading="lazy" alt="Members holding brochures and a jellyfish craft at the booth"></div>
             </div>
             <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
             <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
@@ -318,12 +348,12 @@
           <h3 class="slideshow-title">📸 10/17/25 Jellyfish Mental Health Goody Bags</h3>
           <div class="carousel" id="jellyCarousel">
             <div class="car-frame">
-              <div class="slide active"><span class="bg" style="background-image:url('img-jelly-1.jpg')"></span><img src="img-jelly-1.jpg" alt="Goody bag assembly stations slide during the jellyfish meeting"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-jelly-2.jpg')"></span><img src="img-jelly-2.jpg" loading="lazy" alt="Members listening to the jellyfish goody bag presentation"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-jelly-3.jpg')"></span><img src="img-jelly-3.jpg" loading="lazy" alt="Presenter showing the volunteer sign-up slide"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-jelly-4.jpg')"></span><img src="img-jelly-4.jpg" loading="lazy" alt="Members assembling jellyfish kits with paper strips"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-jelly-5.jpg')"></span><img src="img-jelly-5.jpg" loading="lazy" alt="Members cutting and rolling strips for the jellyfish kits"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-jelly-6.jpg')"></span><img src="img-jelly-6.jpg" loading="lazy" alt="Members preparing materials for the jellyfish goody bags"></div>
+              <div class="slide active"><img class="bg" src="img-jelly-1.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" loading="lazy" src="img-jelly-1.jpg" alt="Goody bag assembly stations slide during the jellyfish meeting"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-jelly-2.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-jelly-2.jpg" loading="lazy" alt="Members listening to the jellyfish goody bag presentation"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-jelly-3.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-jelly-3.jpg" loading="lazy" alt="Presenter showing the volunteer sign-up slide"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-jelly-4.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-jelly-4.jpg" loading="lazy" alt="Members assembling jellyfish kits with paper strips"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-jelly-5.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-jelly-5.jpg" loading="lazy" alt="Members cutting and rolling strips for the jellyfish kits"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-jelly-6.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-jelly-6.jpg" loading="lazy" alt="Members preparing materials for the jellyfish goody bags"></div>
             </div>
             <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
             <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
@@ -344,9 +374,9 @@
           <h3 class="slideshow-title">📸 4/9/25 Mini Garden-Making Kits</h3>
           <div class="carousel" id="gardenCarousel">
             <div class="car-frame">
-              <div class="slide active"><span class="bg" style="background-image:url('img-garden-1.jpg')"></span><img src="img-garden-1.jpg" alt="Member giving a thumbs up while assembling mini garden kits"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-garden-2.jpg')"></span><img src="img-garden-2.jpg" loading="lazy" alt="Leaders giving the CARA speech during the assembly meeting"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-garden-3.jpg')"></span><img src="img-garden-3.jpg" loading="lazy" alt="Members assembling the My Little Garden kits together"></div>
+              <div class="slide active"><img class="bg" src="img-garden-1.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" loading="lazy" src="img-garden-1.jpg" alt="Member giving a thumbs up while assembling mini garden kits"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-garden-2.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-garden-2.jpg" loading="lazy" alt="Leaders giving the CARA speech during the assembly meeting"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-garden-3.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-garden-3.jpg" loading="lazy" alt="Members assembling the My Little Garden kits together"></div>
             </div>
             <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
             <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
@@ -364,9 +394,9 @@
           <h3 class="slideshow-title">📸 3/18/25 Maraca Goody Bags</h3>
           <div class="carousel" id="maracaCarousel">
             <div class="car-frame">
-              <div class="slide active"><span class="bg" style="background-image:url('img-maraca-1.jpg')"></span><img src="img-maraca-1.jpg" alt="Members assembling colorful maraca goody bag kits"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-maraca-2.jpg')"></span><img src="img-maraca-2.jpg" loading="lazy" alt="Members working on maraca kits during the assembly meeting"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-maraca-3.jpg')"></span><img src="img-maraca-3.jpg" loading="lazy" alt="The full group assembling maraca goody bags together"></div>
+              <div class="slide active"><img class="bg" src="img-maraca-1.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" loading="lazy" src="img-maraca-1.jpg" alt="Members assembling colorful maraca goody bag kits"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-maraca-2.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-maraca-2.jpg" loading="lazy" alt="Members working on maraca kits during the assembly meeting"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-maraca-3.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-maraca-3.jpg" loading="lazy" alt="The full group assembling maraca goody bags together"></div>
             </div>
             <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
             <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
@@ -384,11 +414,11 @@
           <h3 class="slideshow-title">📸 3/4/25 Introductory Meeting</h3>
           <div class="carousel" id="introCarousel">
             <div class="car-frame">
-              <div class="slide active"><span class="bg" style="background-image:url('img-intro-1.jpg')"></span><img src="img-intro-1.jpg" alt="Presenter introducing Art from the Heart at the introductory meeting"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-intro-2.jpg')"></span><img src="img-intro-2.jpg" loading="lazy" alt="Two club leaders by the Welcome to Art from the Heart slide"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-intro-3.jpg')"></span><img src="img-intro-3.jpg" loading="lazy" alt="Students seated during the introductory presentation"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-intro-4.jpg')"></span><img src="img-intro-4.jpg" loading="lazy" alt="Members watching and reacting during the meeting"></div>
-              <div class="slide"><span class="bg" style="background-image:url('img-intro-5.jpg')"></span><img src="img-intro-5.jpg" loading="lazy" alt="Members enjoying snacks and goody bags after the presentation"></div>
+              <div class="slide active"><img class="bg" src="img-intro-1.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" loading="lazy" src="img-intro-1.jpg" alt="Presenter introducing Art from the Heart at the introductory meeting"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-intro-2.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-intro-2.jpg" loading="lazy" alt="Two club leaders by the Welcome to Art from the Heart slide"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-intro-3.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-intro-3.jpg" loading="lazy" alt="Students seated during the introductory presentation"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-intro-4.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-intro-4.jpg" loading="lazy" alt="Members watching and reacting during the meeting"></div>
+              <div class="slide"><img class="bg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-intro-5.jpg" alt="" loading="lazy" decoding="async"><img decoding="async" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img-intro-5.jpg" loading="lazy" alt="Members enjoying snacks and goody bags after the presentation"></div>
             </div>
             <button class="car-btn car-prev" type="button" aria-label="Previous photo">&#10094;</button>
             <button class="car-btn car-next" type="button" aria-label="Next photo">&#10095;</button>
@@ -416,7 +446,9 @@
   </div>
 </section>
 
-<div class="wavy" style="background:white;"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,80 1440,40 L1440,80 L0,80 Z" fill="#D4336E"/></svg></div>
+<div class="wavy" style="background:white;"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,80 1440,40 L1440,80 L0,80 Z" fill="#A61B57"/></svg></div>
+
+</main>
 
 <footer>
   <div class="f-logo">💕 Art from the Heart Initiative 💕</div>
@@ -437,6 +469,8 @@
   </div>
   <p class="f-divider">💕 💕 💕</p>
   <p class="f-credit">Made with love by students of Little Rock Central High School 🏫</p>
+  <div class="legal-links"><a href="privacy.html">Privacy Policy</a><a href="accessibility.html">Accessibility</a></div>
+  <p class="copyright">&copy; 2026 Art from the Heart Initiative. All rights reserved.</p>
   <div class="rs-credit">
     <p>Website designed &amp; developed by</p>
     <a href="https://rsdigital.vercel.app" target="_blank" rel="noopener" class="rs-name">RS Digital</a>
@@ -480,13 +514,15 @@
   var navEl=document.getElementById('navLinks');
   if(ham&&navEl){
     ham.addEventListener('click',function(){
-      ham.classList.toggle('open');
-      navEl.classList.toggle('open');
+      var open=navEl.classList.toggle('open');
+      ham.classList.toggle('open',open);
+      ham.setAttribute('aria-expanded',open?'true':'false');
     });
     navEl.querySelectorAll('a').forEach(function(a){
       a.addEventListener('click',function(){
         ham.classList.remove('open');
         navEl.classList.remove('open');
+        ham.setAttribute('aria-expanded','false');
       });
     });
   }
@@ -553,33 +589,56 @@
 </script>
 <script>
 (function(){
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var carousels=document.getElementsByClassName('carousel');
   var c;
   for(c=0;c<carousels.length;c++){
     (function(carousel){
       var slides=carousel.getElementsByClassName('slide');
       var dots=carousel.getElementsByClassName('dot');
+      var titleEl=carousel.parentNode.querySelector('.slideshow-title');
+      carousel.setAttribute('role','region');
+      carousel.setAttribute('aria-roledescription','carousel');
+      carousel.setAttribute('aria-label',titleEl?titleEl.textContent.replace('📸','').trim()+' photos':'Event photos');
+      if(slides.length<2){return;}
       var idx=0;
       var timer=null;
       var DELAY=3000;
+      var userPaused=reduce;  // never auto-advance for people who asked for less motion
+      var pauseBtn=document.createElement('button');
+      pauseBtn.type='button';
+      pauseBtn.className='car-pause';
+      carousel.appendChild(pauseBtn);
+      function setPauseLabel(){
+        pauseBtn.textContent=userPaused?'▶':'❚❚';
+        pauseBtn.setAttribute('aria-label',userPaused?'Play slideshow':'Pause slideshow');
+      }
+      function load(k){
+        var imgs=slides[(k+slides.length)%slides.length].querySelectorAll('img[data-src]');
+        for(var j=0;j<imgs.length;j++){imgs[j].src=imgs[j].getAttribute('data-src');imgs[j].removeAttribute('data-src');}
+      }
       function show(n){
         var i;
         if(n<0){n=slides.length-1;}
         if(n>=slides.length){n=0;}
         idx=n;
+        load(idx);load(idx+1);load(idx-1);
         for(i=0;i<slides.length;i++){
-          if(i===idx){slides[i].classList.add('active');}
-          else{slides[i].classList.remove('active');}
+          var on=(i===idx);
+          slides[i].classList.toggle('active',on);
+          slides[i].setAttribute('aria-hidden',on?'false':'true');
         }
         for(i=0;i<dots.length;i++){
-          if(i===idx){dots[i].classList.add('active');}
-          else{dots[i].classList.remove('active');}
+          dots[i].classList.toggle('active',i===idx);
+          if(i===idx){dots[i].setAttribute('aria-current','true');}
+          else{dots[i].removeAttribute('aria-current');}
         }
       }
       function next(){show(idx+1);}
       function prev(){show(idx-1);}
       function stopTimer(){if(timer){clearInterval(timer);timer=null;}}
-      function startTimer(){stopTimer();timer=setInterval(next,DELAY);}
+      function startTimer(){stopTimer();if(!userPaused){timer=setInterval(next,DELAY);}}
+      pauseBtn.addEventListener('click',function(){userPaused=!userPaused;setPauseLabel();startTimer();});
       var nextBtn=carousel.querySelector('.car-next');
       var prevBtn=carousel.querySelector('.car-prev');
       if(nextBtn){nextBtn.addEventListener('click',function(){next();startTimer();});}
@@ -592,6 +651,9 @@
       }
       carousel.addEventListener('mouseenter',stopTimer);
       carousel.addEventListener('mouseleave',startTimer);
+      carousel.addEventListener('focusin',stopTimer);
+      carousel.addEventListener('focusout',function(e){if(!carousel.contains(e.relatedTarget)){startTimer();}});
+      setPauseLabel();
       show(0);
       startTimer();
     })(carousels[c]);
