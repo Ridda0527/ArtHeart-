@@ -62,11 +62,13 @@
 
   /* LEADER CARDS */
   .leaders-section{position:relative;z-index:1;background:var(--pale);padding:70px 20px;text-align:center;}
-  .leaders-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:1040px;margin:0 auto 20px;}
+  .leaders-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;max-width:1140px;margin:0 auto 20px;}
   .leader-card{background:white;border:3px solid var(--rose);border-radius:35px;overflow:hidden;transition:all .35s;position:relative;box-shadow:0 8px 25px rgba(255,31,142,0.1);}
   .leader-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--hot-pink),var(--purple-pop));}
   .leader-card:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 24px 55px rgba(255,31,142,0.22);border-color:var(--hot-pink);}
   .leader-photo{width:100%;height:320px;object-fit:cover;object-position:center top;display:block;}
+  .leader-photo-placeholder{display:flex;align-items:center;justify-content:center;font-size:6rem;background:linear-gradient(135deg,var(--blush),var(--rose));}
+  @media(max-width:1024px) and (min-width:769px){.leaders-grid{grid-template-columns:repeat(2,1fr);max-width:720px;}}
   .leader-info{padding:25px 20px 32px;text-align:center;}
   .leader-info h3{font-family:'Pacifico',cursive;font-size:1.5rem;color:var(--hot-pink);margin-bottom:6px;}
   .leader-role-badge{display:inline-block;background:linear-gradient(135deg,var(--hot-pink),var(--bubblegum));color:white;font-family:'Caveat',cursive;font-size:1.1rem;font-weight:700;padding:5px 18px;border-radius:50px;margin-top:4px;}
@@ -182,6 +184,13 @@
       <div class="leader-info">
         <h3>Ridda Saraheen</h3>
         <span class="leader-role-badge">Website Manager 💻</span>
+      </div>
+    </div>
+    <div class="leader-card">
+      <div class="leader-photo leader-photo-placeholder" role="img" aria-label="Nidhi Hebbar, Event Manager">🎉</div>
+      <div class="leader-info">
+        <h3>Nidhi Hebbar</h3>
+        <span class="leader-role-badge">Event Manager 💖</span>
       </div>
     </div>
   </div>
