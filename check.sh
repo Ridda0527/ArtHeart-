@@ -30,14 +30,15 @@ done
 [ $ORPHAN -eq 0 ] && note "ok — all images referenced"
 
 echo "== 3. HTML structure =="
+S3=0
 for f in *.html; do
   o=$(grep -o '<div' "$f" | wc -l | tr -d ' '); c=$(grep -o '</div>' "$f" | wc -l | tr -d ' ')
-  [ "$o" = "$c" ] || bad "$f div mismatch: $o open / $c close"
-  grep -qi '</html>' "$f" || bad "$f missing </html>"
-  grep -qi '<title' "$f"  || bad "$f missing <title>"
-  grep -qi 'viewport' "$f" || bad "$f missing viewport meta (mobile will break)"
+  [ "$o" = "$c" ] || { bad "$f div mismatch: $o open / $c close"; S3=1; }
+  grep -qi '</html>' "$f" || { bad "$f missing </html>"; S3=1; }
+  grep -qi '<title' "$f"  || { bad "$f missing <title>"; S3=1; }
+  grep -qi 'viewport' "$f" || { bad "$f missing viewport meta (mobile will break)"; S3=1; }
 done
-[ $FAIL -eq 0 ] && note "ok — tags balanced, title + viewport present on all pages"
+[ $S3 -eq 0 ] && note "ok — tags balanced, title + viewport present on all pages"
 
 echo "== 4. nav links point at real pages =="
 grep -oE 'href="[a-z0-9_-]+\.html"' *.html | sed -E 's/.*href="//; s/"//' | sort -u \

@@ -1,0 +1,2 @@
+# Personal Claude Code settings (machine-specific paths, not for the public repo)
+.claude/settings.local.json
