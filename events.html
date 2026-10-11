@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-src https://www.youtube-nocookie.com https://drive.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-src https://www.youtube-nocookie.com https://drive.google.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Past Events | Art from the Heart Initiative, Little Rock</title>
 <meta name="description" content="Photos from every Art from the Heart event in Little Rock: library craft booths, goody bag assemblies, and kits made with community partners.">
@@ -86,10 +86,6 @@
   .social-btn:hover{background:white;color:var(--ink);transform:translateY(-3px);}
   footer .f-divider{font-size:1.3rem;margin-bottom:12px;opacity:.5;}
   footer .f-credit{font-family:'Figtree',system-ui,sans-serif;font-size:0.95rem;opacity:.75;margin-bottom:20px;}
-  .rs-credit{margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.2);}
-  .rs-credit p{font-family:'Figtree',system-ui,sans-serif;font-size:0.95rem;opacity:.65;margin-bottom:5px;}
-  .rs-name{font-family:'Figtree',system-ui,sans-serif;font-weight:800;font-size:1.1rem;color:var(--yellow-pop);text-decoration:none;transition:all .2s;}
-  .rs-name:hover{color:white;letter-spacing:1px;}
   @keyframes iconWiggle{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
   @keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
   
@@ -146,7 +142,7 @@
     .ev-photo{width:104px;}
   }
 
-  /* ===== Accessibility (WCAG 2.1 AA) ===== */
+  /* ===== Accessibility (WCAG 2.2 AA) ===== */
   :root{--ink:#C2185B;--ink-2:#D6246E;--magenta:#A61B57;}
   .skip-link{position:absolute;left:12px;top:-60px;z-index:10000;background:var(--ink);color:#fff;font-family:'Figtree',system-ui,sans-serif;font-weight:800;padding:10px 18px;border-radius:0 0 12px 12px;text-decoration:none;}
   .skip-link:focus{top:0;}
@@ -175,6 +171,7 @@
   .badge:hover,.page-card:hover,.mini-leader:hover,.counter-box:hover,.spot-card:hover,.pillar:hover,.partner-card:hover,.leader-card:hover,.teaser-card:hover,.contact-card:hover{transform:translateY(-3px);}
   .btn-pink:hover,.btn-white:hover,.btn-outline:hover,.gallery-btn:hover,.ig-btn:hover,.cta-btn:hover,.partner-link:hover{transform:translateY(-2px);}
 
+  html{scroll-padding-top:110px;}
   /* ===== Type: Fraunces / Figtree / Patrick Hand ===== */
   h1,h2,h3,.section-label{letter-spacing:-.012em;}
   .nav-links a{font-size:.98rem;font-weight:700;}
@@ -502,180 +499,9 @@
   <p class="f-credit">Made with love by students of Little Rock Central High School</p>
   <div class="legal-links"><a href="privacy.html">Privacy Policy</a><a href="accessibility.html">Accessibility</a></div>
   <p class="copyright">&copy; 2026 Art from the Heart Initiative. All rights reserved.</p>
-  <div class="rs-credit">
-    <p>Website designed &amp; developed by</p>
-    <a href="https://rsdigital.vercel.app" target="_blank" rel="noopener" class="rs-name">RS Digital</a>
-  </div>
 </footer>
 
-<script>
-(function(){
-  var bar=document.getElementById('progressBar');
-  if(bar){
-    window.addEventListener('scroll',function(){
-      var st=document.documentElement.scrollTop||document.body.scrollTop;
-      var sh=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-      if(sh>0)bar.style.width=(st/sh*100)+'%';
-    },{passive:true});
-  }
-  var btt=document.getElementById('backTop');
-  if(btt){
-    window.addEventListener('scroll',function(){
-      btt.classList.toggle('show',window.scrollY>400);
-    },{passive:true});
-    btt.addEventListener('click',function(){
-      window.scrollTo({top:0,behavior:'smooth'});
-    });
-  }
-  var ham=document.getElementById('hamburger');
-  var navEl=document.getElementById('navLinks');
-  if(ham&&navEl){
-    ham.addEventListener('click',function(){
-      var open=navEl.classList.toggle('open');
-      ham.classList.toggle('open',open);
-      ham.setAttribute('aria-expanded',open?'true':'false');
-    });
-    navEl.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click',function(){
-        ham.classList.remove('open');
-        navEl.classList.remove('open');
-        ham.setAttribute('aria-expanded','false');
-      });
-    });
-  }
-  var path=window.location.pathname;
-  var parts=path.split('/');
-  var last=parts[parts.length-1]||'';
-  var page=last.indexOf('.')>-1?last.substring(0,last.lastIndexOf('.')):last;
-  if(!page||page==='')page='index';
-  document.querySelectorAll('.nav-links a').forEach(function(a){
-    if(a.getAttribute('data-page')===page)a.classList.add('active');
-  });
-  var overlay=document.getElementById('pageOverlay');
-    window.addEventListener('pageshow', function(e) {
-      var ov = document.getElementById('pageOverlay');
-      if (ov) { ov.classList.remove('in'); }
-    });
-
-  if(overlay){
-    document.querySelectorAll('a[href]').forEach(function(a){
-      var href=a.getAttribute('href');
-      if(!href)return;
-      if(href.charAt(0)==='#')return;
-      if(href.substring(0,6)==='mailto')return;
-      if(href.substring(0,4)==='http')return;
-      if(a.target==='_blank')return;
-      a.addEventListener('click',function(e){
-        e.preventDefault();
-        overlay.classList.add('in');
-        setTimeout(function(){window.location.href=href;},320);
-      });
-    });
-  }
-  var counters=document.querySelectorAll('[data-target]');
-  if(counters.length>0&&window.IntersectionObserver){
-    var cobs=new IntersectionObserver(function(entries){
-      for(var ci=0;ci<entries.length;ci++){
-        var entry=entries[ci];
-        if(entry.isIntersecting){
-          var num=entry.target;
-          if(num.getAttribute('data-done'))continue;
-          num.setAttribute('data-done','1');
-          var tgt=parseInt(num.getAttribute('data-target'),10);
-          var steps=60;
-          var inc=tgt/steps;
-          var cur=0;
-          (function(el,target,increment){
-            var t=setInterval(function(){
-              cur+=increment;
-              if(cur>=target){
-                el.textContent=target.toLocaleString('en-US')+(target>=10?'+':'');
-                clearInterval(t);
-              } else {
-                el.textContent=Math.floor(cur).toLocaleString('en-US')+(target>=10?'+':'');
-              }
-            },1800/steps);
-          })(num,tgt,inc);
-          cobs.unobserve(num);
-        }
-      }
-    },{threshold:0.3});
-    counters.forEach(function(el){cobs.observe(el);});
-  }
-})();
-</script>
-<script>
-(function(){
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var carousels=document.getElementsByClassName('carousel');
-  var c;
-  for(c=0;c<carousels.length;c++){
-    (function(carousel){
-      var slides=carousel.getElementsByClassName('slide');
-      var dots=carousel.getElementsByClassName('dot');
-      var titleEl=carousel.parentNode.querySelector('.slideshow-title');
-      carousel.setAttribute('role','region');
-      carousel.setAttribute('aria-roledescription','carousel');
-      carousel.setAttribute('aria-label',titleEl?titleEl.textContent.trim()+' photos':'Event photos');
-      if(slides.length<2){return;}
-      var idx=0;
-      var timer=null;
-      var DELAY=3000;
-      var userPaused=reduce;  // never auto-advance for people who asked for less motion
-      var pauseBtn=document.createElement('button');
-      pauseBtn.type='button';
-      pauseBtn.className='car-pause';
-      carousel.appendChild(pauseBtn);
-      function setPauseLabel(){
-        pauseBtn.textContent=userPaused?'▶':'❚❚';
-        pauseBtn.setAttribute('aria-label',userPaused?'Play slideshow':'Pause slideshow');
-      }
-      function load(k){
-        var imgs=slides[(k+slides.length)%slides.length].querySelectorAll('img[data-src]');
-        for(var j=0;j<imgs.length;j++){imgs[j].src=imgs[j].getAttribute('data-src');imgs[j].removeAttribute('data-src');}
-      }
-      function show(n){
-        var i;
-        if(n<0){n=slides.length-1;}
-        if(n>=slides.length){n=0;}
-        idx=n;
-        load(idx);load(idx+1);load(idx-1);
-        for(i=0;i<slides.length;i++){
-          var on=(i===idx);
-          slides[i].classList.toggle('active',on);
-          slides[i].setAttribute('aria-hidden',on?'false':'true');
-        }
-        for(i=0;i<dots.length;i++){
-          dots[i].classList.toggle('active',i===idx);
-          if(i===idx){dots[i].setAttribute('aria-current','true');}
-          else{dots[i].removeAttribute('aria-current');}
-        }
-      }
-      function next(){show(idx+1);}
-      function prev(){show(idx-1);}
-      function stopTimer(){if(timer){clearInterval(timer);timer=null;}}
-      function startTimer(){stopTimer();if(!userPaused){timer=setInterval(next,DELAY);}}
-      pauseBtn.addEventListener('click',function(){userPaused=!userPaused;setPauseLabel();startTimer();});
-      var nextBtn=carousel.querySelector('.car-next');
-      var prevBtn=carousel.querySelector('.car-prev');
-      if(nextBtn){nextBtn.addEventListener('click',function(){next();startTimer();});}
-      if(prevBtn){prevBtn.addEventListener('click',function(){prev();startTimer();});}
-      var di;
-      for(di=0;di<dots.length;di++){
-        (function(k){
-          dots[k].addEventListener('click',function(){show(k);startTimer();});
-        })(di);
-      }
-      carousel.addEventListener('mouseenter',stopTimer);
-      carousel.addEventListener('mouseleave',startTimer);
-      carousel.addEventListener('focusin',stopTimer);
-      carousel.addEventListener('focusout',function(e){if(!carousel.contains(e.relatedTarget)){startTimer();}});
-      setPauseLabel();
-      show(0);
-      startTimer();
-    })(carousels[c]);
-  }
-})();
-</script>
+<script src="site.js"></script>
+<script src="carousel.js"></script>
 </body>
 </html>
