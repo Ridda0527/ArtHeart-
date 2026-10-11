@@ -223,7 +223,7 @@
 
 
   /* ===== Home: photo-led hero ===== */
-  .hero{min-height:0;display:block;text-align:left;padding:56px 24px 40px;background:linear-gradient(170deg,#FFE6F1 0%,#FFD0E5 100%);}
+  .hero{min-height:0;display:block;text-align:left;padding:56px 24px 40px;background:linear-gradient(180deg,#FFE6F1 0%,#FFD0E5 100%);}
   .hero::before{content:none;}
   .hero-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1.08fr;gap:56px;align-items:center;}
   .eyebrow{font-family:'Figtree',system-ui,sans-serif;font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--magenta);margin-bottom:14px;}
@@ -304,6 +304,12 @@
   .leader-photo-placeholder,.mini-avatar.initials{font-family:'Fraunces',Georgia,serif;font-weight:700;letter-spacing:.02em;}
   .leader-photo-placeholder{font-size:4rem;color:var(--magenta);}
   .mini-avatar.initials{font-size:1.6rem;color:#fff;background:var(--ink);}
+
+  /* ===== Colors: flat bands so wavy edges line up exactly ===== */
+  :root{--band:#B01A5A;}
+  footer{background:#951650!important;}
+  .bemighty-inner,.collab-blurb,.statement-block,.stats-bar,.cta-section,.ig-strip,.impact-section,footer{background:var(--band);}
+  .page-hero,.main-content{background:linear-gradient(180deg,#FFE3EF 0%,#FFC6E2 100%);}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Art from the Heart Initiative", "alternateName": "AHI", "url": "https://artfromtheheartinitiative.org/", "logo": "https://artfromtheheartinitiative.org/img-favicon.png", "email": "artfromtheheartar@gmail.com", "description": "Student-led group from Little Rock Central High School that makes free art and health craft kits for kids at Central Arkansas Library System branches.", "foundingDate": "2025-03", "areaServed": {"@type": "City", "name": "Little Rock, Arkansas"}, "address": {"@type": "PostalAddress", "addressLocality": "Little Rock", "addressRegion": "AR", "addressCountry": "US"}, "sameAs": ["https://www.instagram.com/artfromtheheartinitiative/"]}</script>
 </head>
@@ -356,7 +362,7 @@
   </div>
 </section>
 
-<div class="wavy" style="background:#FFD0E5;"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,80 L0,80 Z" fill="white"/></svg></div>
+<div class="wavy" style="background:#FFD0E5;" aria-hidden="true"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,80 L0,80 Z" fill="#FFFFFF"/></svg></div>
 
 <!-- ABOUT SNAPSHOT -->
 <section class="about-section">
@@ -376,7 +382,7 @@
   </div>
 </section>
 
-<div class="wavy" style="background:white;"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,80 1440,40 L1440,80 L0,80 Z" fill="#FF6BAE"/></svg></div>
+<div class="wavy" style="background:#FFFFFF;" aria-hidden="true"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,80 1440,40 L1440,80 L0,80 Z" fill="#B01A5A"/></svg></div>
 
 <!-- IMPACT COUNTERS -->
 <section class="impact-section">
@@ -391,7 +397,7 @@
   </div>
 </section>
 
-<div class="wavy" style="background:linear-gradient(135deg,#FF6BAE,#FF9BCE);"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,80 L0,80 Z" fill="#FFF0F7"/></svg></div>
+<div class="wavy" style="background:#B01A5A;" aria-hidden="true"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,80 L0,80 Z" fill="#FFF0F7"/></svg></div>
 
 <!-- EVENT GALLERY -->
 <section class="gallery-section">
@@ -428,7 +434,7 @@
   </div>
 </section>
 
-<div class="wavy" style="background:var(--pale);"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,80 1440,40 L1440,80 L0,80 Z" fill="white"/></svg></div>
+<div class="wavy" style="background:#FFF0F7;" aria-hidden="true"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,0 360,80 540,40 C720,0 900,80 1080,40 C1260,0 1440,80 1440,40 L1440,80 L0,80 Z" fill="#FFFFFF"/></svg></div>
 
 <!-- TEAM TEASER -->
 <section class="team-teaser">
@@ -474,7 +480,7 @@
   </div>
 </section>
 
-<div class="wavy" style="background:linear-gradient(135deg,#FFBED8,#FF9BCE);"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,80 L0,80 Z" fill="#A61B57"/></svg></div>
+<div class="wavy" style="background:#B01A5A;" aria-hidden="true"><svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C180,80 360,0 540,40 C720,80 900,0 1080,40 C1260,80 1440,0 1440,40 L1440,80 L0,80 Z" fill="#951650"/></svg></div>
 
 </main>
 
